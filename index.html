@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- পেজ লোড শুরুর সময় ট্র্যাক করার জন্য -->
+    <script>window.loaderStartTime = Date.now();</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPX Gaming | Portfolio</title>
@@ -26,6 +29,8 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preload" as="image" href="https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg">
     <link rel="preload" as="image" href="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png">
+    <!-- New Loading Screen Logo Preload -->
+    <link rel="preload" as="image" href="https://r73746935-stack.github.io/RPX-logo/file%20(1).svg">
     
     <style>
         /* Base Reset & Fixes */
@@ -693,7 +698,8 @@
     <!-- Premium Fullscreen Loader Layer -->
     <div id="loader" role="alert" aria-busy="true" aria-label="Loading page resources">
         <div class="loader-content">
-            <img src="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png" alt="RPX Gaming Logo Loader" class="loader-logo" width="120" height="120">
+            <!-- Loader logo (updated to rpx logo from link) -->
+            <img src="https://r73746935-stack.github.io/RPX-logo/file%20(1).svg" alt="RPX Gaming Logo Loader" class="loader-logo" width="120" height="120">
             <div class="loader-text">Loading...</div>
             <div class="loader-bar"></div>
         </div>
@@ -854,7 +860,9 @@
         (() => {
             "use strict";
 
-            // High-Performance Dynamic Loader Mechanism
+            const MIN_LOADING_TIME = 4000; // ন্যূনতম লোড টাইম ৪ সেকেন্ড (৪০০০ms)
+
+            // Dynamic Loader Mechanism
             const hideLoader = () => {
                 const loader = document.getElementById('loader');
                 const body = document.body;
@@ -862,18 +870,29 @@
                     loader.classList.add('fade-out');
                     body.classList.remove('loading');
                     
-                    // Clean from DOM after fade animation concludes
+                    // অ্যানিমেশন শেষ হওয়ার পর DOM থেকে রিমুভ করবে
                     setTimeout(() => {
                         loader.remove();
                     }, 800);
                 }
             };
 
-            // Tracks exact download/parsing progress of images and system background
+            // ৪ সেকেন্ডের আগে লোড হয়ে গেলে বাকি সময় অপেক্ষা করার লজিক
+            const triggerHideLoader = () => {
+                const elapsedTime = Date.now() - (window.loaderStartTime || Date.now());
+                if (elapsedTime >= MIN_LOADING_TIME) {
+                    hideLoader();
+                } else {
+                    const remainingTime = MIN_LOADING_TIME - elapsedTime;
+                    setTimeout(hideLoader, remainingTime);
+                }
+            };
+
+            // ইমেজ এবং ব্যাকগ্রাউন্ড অ্যাসেট ট্র্যাক করার ট্র্যাকার
             const initLoaderTracker = () => {
                 const images = Array.from(document.querySelectorAll('img'));
                 
-                // Explicitly map background asset into resource array queue
+                // ব্যাকগ্রাউন্ড ইমেজ কিউতে যুক্ত করা হলো
                 const bgImgUrl = 'https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg';
                 const bgImage = new Image();
                 bgImage.src = bgImgUrl;
@@ -885,7 +904,7 @@
                 const assetLoaded = () => {
                     completedAssets++;
                     if (completedAssets >= totalAssets) {
-                        hideLoader();
+                        triggerHideLoader();
                     }
                 };
 
@@ -894,26 +913,26 @@
                         assetLoaded();
                     } else {
                         img.addEventListener('load', assetLoaded, { once: true });
-                        img.addEventListener('error', assetLoaded, { once: true }); // failsafe on broken individual link
+                        img.addEventListener('error', assetLoaded, { once: true }); // ইমেজ ফেইল করলেও যাতে আটকে না থাকে
                     }
                 });
 
-                // Ultimate page ready state observer
+                // পেজ ফুল রেডি হয়ে যাওয়ার জন্য গ্লোবাল লিসেনার
                 if (document.readyState === 'complete') {
-                    hideLoader();
+                    triggerHideLoader();
                 } else {
-                    window.addEventListener('load', hideLoader, { once: true });
+                    window.addEventListener('load', triggerHideLoader, { once: true });
                 }
             };
 
-            // Network/Cache Infinite-Hangs Failsafe Timer (Guarantees user access under 4.5 seconds)
+            // নেট বা ক্যাশ হ্যাং ফেইলসেফ টাইমার (যদি কোনো বড় সমস্যা হয় তাও ১৫ সেকেন্ড পর লোড সম্পন্ন হবে)
             const initFailsafeTimeout = () => {
                 setTimeout(() => {
-                    hideLoader();
-                }, 4500);
+                    triggerHideLoader();
+                }, 15000); 
             };
 
-            // Initialize Loading Infrastructure
+            // সব সেটআপ ইনিশিয়েট করার জন্য
             initLoaderTracker();
             initFailsafeTimeout();
 
@@ -941,4 +960,4 @@
         })();
     </script>
 </body>
-            </html>
+    </html>
