@@ -257,12 +257,12 @@
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
         }
 
-        /* Modern Information Card Layout Styles (Always Stacked) */
+        /* Compact Information Card Layout Styles */
         .info-card {
             width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
             margin-top: 10px;
         }
 
@@ -270,8 +270,8 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 10px;
-            padding: 18px 16px;
+            gap: 6px; /* Reduced gap for compact feel */
+            padding: 11px 16px; /* Reduced padding to save vertical space */
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             text-align: left;
         }
@@ -292,7 +292,7 @@
         /* Universal Premium 3D Glass Box Styles */
         .glass-3d-box {
             display: inline-block;
-            padding: 12px 22px;
+            padding: 10px 20px; /* Made slightly tighter to match the compact rows */
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -335,7 +335,7 @@
         .scroll-reveal > * {
             opacity: 0;
             transform: translate3d(-60px, 0, 0); 
-            /* [BUG FIX] smooth cubic-bezier dynamic flow - preventing stuttering when going in/out of screen quickly */
+            /* Smooth cubic-bezier dynamic flow - preventing stuttering when going in/out of screen quickly */
             transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform, opacity;
         }
@@ -684,12 +684,12 @@
             }
 
             .info-row {
-                padding: 14px 10px;
-                gap: 8px;
+                padding: 10px 10px; /* Tighter padding on mobile */
+                gap: 5px;
             }
             .glass-3d-box {
                 font-size: 13px;
-                padding: 10px 18px;
+                padding: 8px 16px;
             }
         }
     </style>
@@ -736,33 +736,35 @@
         </div>
     </header>
 
-    <!-- Information Section -->
-    <section id="info" class="glass-box scroll-reveal" aria-labelledby="info-title">
-        <span class="section-label">About Me</span>
-        <h2 id="info-title" class="section-title">RPX INFORMATION</h2>
+    <!-- Information Section (Independently Animated Rows & Compact Spacing) -->
+    <section id="info" class="glass-box" aria-labelledby="info-title">
+        <div class="scroll-reveal">
+            <span class="section-label">About Me</span>
+            <h2 id="info-title" class="section-title">RPX INFORMATION</h2>
+        </div>
         
         <div class="info-card">
-            <div class="info-row">
+            <div class="info-row scroll-reveal">
                 <span class="info-label">Name</span>
                 <div class="glass-3d-box">SM Suhrawardi Raj</div>
             </div>
-            <div class="info-row">
+            <div class="info-row scroll-reveal">
                 <span class="info-label">Country</span>
                 <div class="glass-3d-box">Bangladesh</div>
             </div>
-            <div class="info-row">
+            <div class="info-row scroll-reveal">
                 <span class="info-label">Hobby</span>
                 <div class="glass-3d-box">Gaming • Graphic Design</div>
             </div>
-            <div class="info-row">
+            <div class="info-row scroll-reveal">
                 <span class="info-label">Interest</span>
                 <div class="glass-3d-box">Philosophy</div>
             </div>
-            <div class="info-row">
+            <div class="info-row scroll-reveal">
                 <span class="info-label">Talent</span>
                 <div class="glass-3d-box">Deep Focus • Problem Solving</div>
             </div>
-            <div class="info-row">
+            <div class="info-row scroll-reveal">
                 <span class="info-label">Goal</span>
                 <div class="glass-3d-box">Professional Gaming Content Creator</div>
             </div>
@@ -875,8 +877,7 @@
                         if (entry.isIntersecting) {
                             entry.target.classList.add('active');
                         } else {
-                            // [RE-ANIMATE ON SCROLL ACTIVE] ইউজার স্ক্রল করে চলে গেলে ক্লাস রিমুভ হবে যাতে আবার স্ক্রল করে আসলে অ্যানিমেট হয়।
-                            // তবে সিএসএস এবং মার্জিন অপ্টিমাইজড হওয়ায় এটি মাঝপথে আর গ্লিচ বা ল্যাগ করবে না।
+                            // [RE-ANIMATE ON SCROLL ACTIVE] 
                             entry.target.classList.remove('active');
                         }
                     });
@@ -963,4 +964,4 @@
         })();
     </script>
 </body>
-    </html>
+                </html>
