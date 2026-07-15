@@ -65,87 +65,165 @@
             outline-offset: 4px;
         }
 
-        /* Premium & Modern Glassmorphism Loader */
+        /* ========================================================
+           ULTRA-PREMIUM CINEMATIC LOADER SYSTEM 
+           ======================================================== */
         #loader {
             position: fixed;
             inset: 0;
-            background-color: #06020f;
+            background-color: #05020a;
             z-index: 999999;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), visibility 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            opacity: 1;
-            visibility: visible;
+            overflow: hidden;
+            transition: opacity 1s cubic-bezier(0.85, 0, 0.15, 1), 
+                        transform 1s cubic-bezier(0.85, 0, 0.15, 1), 
+                        visibility 1s;
         }
 
         #loader.fade-out {
             opacity: 0;
+            transform: scale(1.08); /* Sophisticated camera zoom-out effect */
             visibility: hidden;
             pointer-events: none;
         }
 
+        .loader-bg-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, rgba(6, 2, 15, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate3d(-50%, -50%, 0);
+            z-index: 1;
+            pointer-events: none;
+            animation: pulseGlow 4s infinite ease-in-out;
+            will-change: transform, opacity;
+        }
+
         .loader-content {
+            position: relative;
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo-wrapper {
             position: relative;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .loader-logo {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 30px rgba(226, 194, 255, 0.2);
-            animation: pulseLogo 2.5s infinite ease-in-out;
+            z-index: 2;
+            border: 2px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 0 35px rgba(138, 43, 226, 0.25);
+            animation: floatLogo 3s infinite ease-in-out;
+            will-change: transform;
         }
 
-        .loader-text {
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-            margin-left: 5px; /* balancing letter spacing alignment */
-        }
-
-        .loader-bar {
-            width: 140px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.08);
-            margin-top: 25px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-        }
-
-        .loader-bar::after {
-            content: '';
+        /* Glowing Tech Ring Rotating Around Logo */
+        .loader-ring {
             position: absolute;
-            left: -50px;
-            width: 60px;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: #e2c2ff;
+            border-bottom-color: rgba(138, 43, 226, 0.4);
+            z-index: 1;
+            animation: spinRing 2s infinite linear;
+            will-change: transform;
+        }
+
+        .loader-title {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 7px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            margin-left: 7px; /* Align tracking center */
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            animation: textPulse 2s infinite ease-in-out;
+        }
+
+        .loader-status {
+            color: rgba(226, 194, 255, 0.55);
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-left: 4px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            height: 12px; /* Fixed height to prevent layouts jumping on text change */
+        }
+
+        .loader-progress-container {
+            width: 180px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .loader-progress-bar {
+            width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, #e2c2ff, transparent);
-            box-shadow: 0 0 15px #e2c2ff;
-            animation: loadingBar 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            background: linear-gradient(90deg, #8a2be2, #e2c2ff);
+            box-shadow: 0 0 12px #e2c2ff;
+            border-radius: 10px;
+            transition: width 0.1s linear;
         }
 
-        @keyframes pulseLogo {
-            0% { transform: scale(0.96); box-shadow: 0 0 20px rgba(226, 194, 255, 0.15); border-color: rgba(255, 255, 255, 0.1); }
-            50% { transform: scale(1.04); box-shadow: 0 0 40px rgba(226, 194, 255, 0.4); border-color: rgba(226, 194, 255, 0.4); }
-            100% { transform: scale(0.96); box-shadow: 0 0 20px rgba(226, 194, 255, 0.15); border-color: rgba(255, 255, 255, 0.1); }
+        .loader-percentage {
+            color: #e2c2ff;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-family: 'Courier New', Courier, monospace; /* Clean tech appearance */
         }
 
-        @keyframes loadingBar {
-            0% { transform: translate3d(-60px, 0, 0); left: 0; }
-            100% { transform: translate3d(140px, 0, 0); left: 0; }
+        /* Animations for Loader */
+        @keyframes pulseGlow {
+            0%, 100% { transform: translate3d(-50%, -50%, 0) scale(0.9); opacity: 0.7; }
+            50% { transform: translate3d(-50%, -50%, 0) scale(1.1); opacity: 1; }
         }
+
+        @keyframes floatLogo {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-6px) scale(1.02); }
+        }
+
+        @keyframes spinRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes textPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* ========================================================
+           END OF LOADER STYLES
+           ======================================================== */
 
         /* Ultra-Stabilized Fixed Background */
         .bg-fixed {
@@ -270,8 +348,8 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 6px; /* Reduced gap for compact feel */
-            padding: 11px 16px; /* Reduced padding to save vertical space */
+            gap: 6px; 
+            padding: 11px 16px; 
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             text-align: left;
         }
@@ -292,7 +370,7 @@
         /* Universal Premium 3D Glass Box Styles */
         .glass-3d-box {
             display: inline-block;
-            padding: 10px 20px; /* Made slightly tighter to match the compact rows */
+            padding: 10px 20px; 
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
@@ -335,7 +413,6 @@
         .scroll-reveal > * {
             opacity: 0;
             transform: translate3d(-60px, 0, 0); 
-            /* Smooth cubic-bezier dynamic flow - preventing stuttering when going in/out of screen quickly */
             transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform, opacity;
         }
@@ -684,7 +761,7 @@
             }
 
             .info-row {
-                padding: 10px 10px; /* Tighter padding on mobile */
+                padding: 10px 10px; 
                 gap: 5px;
             }
             .glass-3d-box {
@@ -696,12 +773,20 @@
 </head>
 <body class="loading">
     
-    <!-- Premium Fullscreen Loader Layer -->
+    <!-- Ultra-Premium Web-Like Fullscreen Loader Layer -->
     <div id="loader" role="alert" aria-busy="true" aria-label="Loading page resources">
+        <div class="loader-bg-glow"></div>
         <div class="loader-content">
-            <img src="https://r73746935-stack.github.io/RPX-logo/file%20(1).svg" alt="RPX Gaming Logo Loader" class="loader-logo" width="120" height="120">
-            <div class="loader-text">Loading...</div>
-            <div class="loader-bar"></div>
+            <div class="logo-wrapper">
+                <div class="loader-ring"></div>
+                <img src="https://r73746935-stack.github.io/RPX-logo/file%20(1).svg" alt="RPX Gaming Logo Loader" class="loader-logo" width="120" height="120">
+            </div>
+            <div class="loader-title">RPX GAMING</div>
+            <div class="loader-status">INITIALIZING SYSTEM</div>
+            <div class="loader-progress-container">
+                <div class="loader-progress-bar"></div>
+            </div>
+            <div class="loader-percentage">0%</div>
         </div>
     </div>
 
@@ -862,9 +947,61 @@
         (() => {
             "use strict";
 
-            const MIN_LOADING_TIME = 4000; // ন্যূনতম লোড টাইম ৪ সেকেন্ড
+            const MIN_LOADING_TIME = 4000; // ৪ সেকেন্ডের আল্ট্রা-স্মুথ লাক্সারি প্রগ্রেস রিং লোডিং
+            const loaderStartTime = window.loaderStartTime || Date.now();
+            let assetsLoaded = false;
+            let percent = 0;
 
-            // Premium Scroll Reveal Setup (রি-অ্যানিমেশন সহ সুপার স্মুথ ট্র্যাকিং)
+            const progressBar = document.querySelector('.loader-progress-bar');
+            const percentText = document.querySelector('.loader-percentage');
+            const statusText = document.querySelector('.loader-status');
+
+            // লোড হওয়ার সময় দেখানোর জন্য কুল টেকনিক্যাল মেসেজ
+            const statusMessages = [
+                "INITIALIZING SYSTEM...",
+                "LOADING GRAPHIC ASSETS...",
+                "COMPILING COMPONENT STACKS...",
+                "PREPARING HIGH-DPI INTERFACE...",
+                "WELCOME TO RPX GAMING"
+            ];
+
+            // রিয়েল-টাইম পার্সেন্টেজ ও স্ট্যাটাস আপডেটার
+            const updateProgress = () => {
+                const interval = setInterval(() => {
+                    const elapsedTime = Date.now() - loaderStartTime;
+                    
+                    // যতক্ষণ লোড হচ্ছে, ততক্ষণ সর্বোচ্চ ৯৯% পর্যন্ত প্রগ্রেস স্মুথলি যাবে
+                    let targetPercent = Math.min(Math.floor((elapsedTime / MIN_LOADING_TIME) * 100), 99);
+                    
+                    // ৪ সেকেন্ড অতিবাহিত হলে এবং সব অ্যাসেট লোড হয়ে গেলে ১০০% এ হিট করবে
+                    if (assetsLoaded && elapsedTime >= MIN_LOADING_TIME) {
+                        clearInterval(interval);
+                        percent = 100;
+                        if (progressBar) progressBar.style.width = '100%';
+                        if (percentText) percentText.textContent = '100%';
+                        if (statusText) statusText.textContent = statusMessages[4];
+                        
+                        setTimeout(hideLoader, 500); // ১০০% হওয়ার পর ৫০০ মিলি-সেকেন্ড অপেক্ষা করে ফেডআউট হবে
+                        return;
+                    }
+
+                    if (percent < targetPercent) {
+                        percent = targetPercent;
+                        if (progressBar) progressBar.style.width = `${percent}%`;
+                        if (percentText) percentText.textContent = `${percent}%`;
+                        
+                        // প্রগ্রেস ট্র্যাকিংয়ের ওপর ভিত্তি করে স্ট্যাটাস আপডেট
+                        if (statusText) {
+                            if (percent < 25) statusText.textContent = statusMessages[0];
+                            else if (percent < 50) statusText.textContent = statusMessages[1];
+                            else if (percent < 75) statusText.textContent = statusMessages[2];
+                            else statusText.textContent = statusMessages[3];
+                        }
+                    }
+                }, 35);
+            };
+
+            // Scroll Reveal Activation
             const startScrollReveal = () => {
                 const observerOptions = {
                     root: null,
@@ -877,7 +1014,6 @@
                         if (entry.isIntersecting) {
                             entry.target.classList.add('active');
                         } else {
-                            // [RE-ANIMATE ON SCROLL ACTIVE] 
                             entry.target.classList.remove('active');
                         }
                     });
@@ -887,7 +1023,7 @@
                 revealElements.forEach(el => revealObserver.observe(el));
             };
 
-            // Loader Hide Mechanism
+            // Loader Smooth Fade and Scale-Out Exit
             const hideLoader = () => {
                 const loader = document.getElementById('loader');
                 const body = document.body;
@@ -895,32 +1031,26 @@
                     loader.classList.add('fade-out');
                     body.classList.remove('loading');
                     
-                    // লোডার সরে যাওয়ার সামান্য আগেই (১০০ms পর) অ্যানিমেশন চালু হবে
                     setTimeout(() => {
                         startScrollReveal();
                     }, 100);
 
-                    // CSS Transition (0.8s) শেষ হওয়ার পর DOM থেকে রিমুভ করবে
+                    // ১ সেকেন্ড ট্রানজিশনের পর DOM থেকে পুরোপুরি মুছে যাবে
                     setTimeout(() => {
                         loader.remove();
-                    }, 800);
+                    }, 1000);
                 }
             };
 
             const triggerHideLoader = () => {
-                const elapsedTime = Date.now() - (window.loaderStartTime || Date.now());
-                if (elapsedTime >= MIN_LOADING_TIME) {
-                    hideLoader();
-                } else {
-                    const remainingTime = MIN_LOADING_TIME - elapsedTime;
-                    setTimeout(hideLoader, remainingTime);
-                }
+                assetsLoaded = true;
             };
 
-            // Image Tracker
+            // Assets Loader Tracker
             const initLoaderTracker = () => {
+                updateProgress(); // কাউন্টার চালু হলো
+
                 const images = Array.from(document.querySelectorAll('img'));
-                
                 const bgImgUrl = 'https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg';
                 const bgImage = new Image();
                 bgImage.src = bgImgUrl;
@@ -952,7 +1082,7 @@
                 }
             };
 
-            // Failsafe Timer
+            // লোডারে কোনো ফিজিক্যাল এরর হলেও যাতে পেজ হ্যাং না করে, ১৫ সেকেন্ডের ফেইলসেফ টাইমার
             const initFailsafeTimeout = () => {
                 setTimeout(() => {
                     triggerHideLoader();
@@ -964,4 +1094,4 @@
         })();
     </script>
 </body>
-                </html>
+</html>
