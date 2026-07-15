@@ -147,7 +147,7 @@
             100% { transform: translate3d(140px, 0, 0); left: 0; }
         }
 
-        /* Ultra-Stabilized Fixed Background (Solves Mobile Overscroll & Address Bar Black Gaps) */
+        /* Ultra-Stabilized Fixed Background */
         .bg-fixed {
             position: fixed;
             top: -60px;
@@ -334,8 +334,9 @@
         /* Direct content block cinematic entrance and exit */
         .scroll-reveal > * {
             opacity: 0;
-            transform: translate3d(-45px, 0, 0);
-            transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+            transform: translate3d(-60px, 0, 0); 
+            /* [BUG FIX] smooth cubic-bezier dynamic flow - preventing stuttering when going in/out of screen quickly */
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
             will-change: transform, opacity;
         }
 
@@ -346,10 +347,10 @@
         }
 
         /* Premium Sequential Stagger Delays on Entrance */
-        .scroll-reveal.active > *:nth-child(1) { transition-delay: 0.04s; }
-        .scroll-reveal.active > *:nth-child(2) { transition-delay: 0.14s; }
-        .scroll-reveal.active > *:nth-child(3) { transition-delay: 0.24s; }
-        .scroll-reveal.active > *:nth-child(4) { transition-delay: 0.34s; }
+        .scroll-reveal.active > *:nth-child(1) { transition-delay: 0.05s; }
+        .scroll-reveal.active > *:nth-child(2) { transition-delay: 0.15s; }
+        .scroll-reveal.active > *:nth-child(3) { transition-delay: 0.25s; }
+        .scroll-reveal.active > *:nth-child(4) { transition-delay: 0.35s; }
 
         /* Stagger for interactive list items/badges inside containers */
         .hero-badges-container .hero-glass-badge,
@@ -357,8 +358,8 @@
         .tools-grid .tool-tag,
         .social-icons-container .social-icon {
             opacity: 0;
-            transform: translate3d(-25px, 0, 0);
-            transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transform: translate3d(-35px, 0, 0);
+            transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             will-change: transform, opacity;
         }
 
@@ -371,22 +372,22 @@
         }
 
         /* Secondary internal cascade stagger */
-        .scroll-reveal.active .hero-badges-container .hero-glass-badge:nth-child(1) { transition-delay: 0.28s; }
-        .scroll-reveal.active .hero-badges-container .hero-glass-badge:nth-child(2) { transition-delay: 0.36s; }
+        .scroll-reveal.active .hero-badges-container .hero-glass-badge:nth-child(1) { transition-delay: 0.3s; }
+        .scroll-reveal.active .hero-badges-container .hero-glass-badge:nth-child(2) { transition-delay: 0.4s; }
 
-        .scroll-reveal.active .skills-container .skill-badge:nth-child(1) { transition-delay: 0.28s; }
-        .scroll-reveal.active .skills-container .skill-badge:nth-child(2) { transition-delay: 0.36s; }
-        .scroll-reveal.active .skills-container .skill-badge:nth-child(3) { transition-delay: 0.44s; }
+        .scroll-reveal.active .skills-container .skill-badge:nth-child(1) { transition-delay: 0.3s; }
+        .scroll-reveal.active .skills-container .skill-badge:nth-child(2) { transition-delay: 0.4s; }
+        .scroll-reveal.active .skills-container .skill-badge:nth-child(3) { transition-delay: 0.5s; }
 
-        .scroll-reveal.active .tools-grid .tool-tag:nth-child(1) { transition-delay: 0.28s; }
-        .scroll-reveal.active .tools-grid .tool-tag:nth-child(2) { transition-delay: 0.33s; }
-        .scroll-reveal.active .tools-grid .tool-tag:nth-child(3) { transition-delay: 0.38s; }
-        .scroll-reveal.active .tools-grid .tool-tag:nth-child(4) { transition-delay: 0.43s; }
-        .scroll-reveal.active .tools-grid .tool-tag:nth-child(5) { transition-delay: 0.48s; }
+        .scroll-reveal.active .tools-grid .tool-tag:nth-child(1) { transition-delay: 0.3s; }
+        .scroll-reveal.active .tools-grid .tool-tag:nth-child(2) { transition-delay: 0.35s; }
+        .scroll-reveal.active .tools-grid .tool-tag:nth-child(3) { transition-delay: 0.4s; }
+        .scroll-reveal.active .tools-grid .tool-tag:nth-child(4) { transition-delay: 0.45s; }
+        .scroll-reveal.active .tools-grid .tool-tag:nth-child(5) { transition-delay: 0.5s; }
 
-        .scroll-reveal.active .social-icons-container .social-icon:nth-child(1) { transition-delay: 0.28s; }
-        .scroll-reveal.active .social-icons-container .social-icon:nth-child(2) { transition-delay: 0.38s; }
-        .scroll-reveal.active .social-icons-container .social-icon:nth-child(3) { transition-delay: 0.48s; }
+        .scroll-reveal.active .social-icons-container .social-icon:nth-child(1) { transition-delay: 0.3s; }
+        .scroll-reveal.active .social-icons-container .social-icon:nth-child(2) { transition-delay: 0.4s; }
+        .scroll-reveal.active .social-icons-container .social-icon:nth-child(3) { transition-delay: 0.5s; }
 
         .hero-logo-container {
             width: 130px;
@@ -587,7 +588,7 @@
                         border-color 0.3s ease;
         }
 
-        /* Circular Social Icons Contact Section & Click Fixes */
+        /* Circular Social Icons Contact Section */
         .social-icons-container {
             display: flex;
             justify-content: center;
@@ -639,7 +640,7 @@
             letter-spacing: 2px;
         }
 
-        /* Mobile & Multi-device Fluid Layout Configurations */
+        /* Mobile Adjustments */
         @media (max-width: 600px) {
             .navbar, .hero-glass-box, .glass-box {
                 backdrop-filter: blur(15px);
@@ -698,7 +699,6 @@
     <!-- Premium Fullscreen Loader Layer -->
     <div id="loader" role="alert" aria-busy="true" aria-label="Loading page resources">
         <div class="loader-content">
-            <!-- Loader logo (updated to rpx logo from link) -->
             <img src="https://r73746935-stack.github.io/RPX-logo/file%20(1).svg" alt="RPX Gaming Logo Loader" class="loader-logo" width="120" height="120">
             <div class="loader-text">Loading...</div>
             <div class="loader-bar"></div>
@@ -841,7 +841,7 @@
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                 </svg>
             </a>
-            <!-- YouTube (Added with High-Compatibility Platform Deep Link) -->
+            <!-- YouTube -->
             <a href="https://www.youtube.com/@RPX_GamingYT" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit RPX Gaming YouTube Channel">
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
@@ -860,9 +860,33 @@
         (() => {
             "use strict";
 
-            const MIN_LOADING_TIME = 4000; // ন্যূনতম লোড টাইম ৪ সেকেন্ড (৪০০০ms)
+            const MIN_LOADING_TIME = 4000; // ন্যূনতম লোড টাইম ৪ সেকেন্ড
 
-            // Dynamic Loader Mechanism
+            // Premium Scroll Reveal Setup (রি-অ্যানিমেশন সহ সুপার স্মুথ ট্র্যাকিং)
+            const startScrollReveal = () => {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-8% 0px -8% 0px', 
+                    threshold: 0.1
+                };
+
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        } else {
+                            // [RE-ANIMATE ON SCROLL ACTIVE] ইউজার স্ক্রল করে চলে গেলে ক্লাস রিমুভ হবে যাতে আবার স্ক্রল করে আসলে অ্যানিমেট হয়।
+                            // তবে সিএসএস এবং মার্জিন অপ্টিমাইজড হওয়ায় এটি মাঝপথে আর গ্লিচ বা ল্যাগ করবে না।
+                            entry.target.classList.remove('active');
+                        }
+                    });
+                }, observerOptions);
+
+                const revealElements = document.querySelectorAll('.scroll-reveal');
+                revealElements.forEach(el => revealObserver.observe(el));
+            };
+
+            // Loader Hide Mechanism
             const hideLoader = () => {
                 const loader = document.getElementById('loader');
                 const body = document.body;
@@ -870,14 +894,18 @@
                     loader.classList.add('fade-out');
                     body.classList.remove('loading');
                     
-                    // অ্যানিমেশন শেষ হওয়ার পর DOM থেকে রিমুভ করবে
+                    // লোডার সরে যাওয়ার সামান্য আগেই (১০০ms পর) অ্যানিমেশন চালু হবে
+                    setTimeout(() => {
+                        startScrollReveal();
+                    }, 100);
+
+                    // CSS Transition (0.8s) শেষ হওয়ার পর DOM থেকে রিমুভ করবে
                     setTimeout(() => {
                         loader.remove();
                     }, 800);
                 }
             };
 
-            // ৪ সেকেন্ডের আগে লোড হয়ে গেলে বাকি সময় অপেক্ষা করার লজিক
             const triggerHideLoader = () => {
                 const elapsedTime = Date.now() - (window.loaderStartTime || Date.now());
                 if (elapsedTime >= MIN_LOADING_TIME) {
@@ -888,11 +916,10 @@
                 }
             };
 
-            // ইমেজ এবং ব্যাকগ্রাউন্ড অ্যাসেট ট্র্যাক করার ট্র্যাকার
+            // Image Tracker
             const initLoaderTracker = () => {
                 const images = Array.from(document.querySelectorAll('img'));
                 
-                // ব্যাকগ্রাউন্ড ইমেজ কিউতে যুক্ত করা হলো
                 const bgImgUrl = 'https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg';
                 const bgImage = new Image();
                 bgImage.src = bgImgUrl;
@@ -913,11 +940,10 @@
                         assetLoaded();
                     } else {
                         img.addEventListener('load', assetLoaded, { once: true });
-                        img.addEventListener('error', assetLoaded, { once: true }); // ইমেজ ফেইল করলেও যাতে আটকে না থাকে
+                        img.addEventListener('error', assetLoaded, { once: true });
                     }
                 });
 
-                // পেজ ফুল রেডি হয়ে যাওয়ার জন্য গ্লোবাল লিসেনার
                 if (document.readyState === 'complete') {
                     triggerHideLoader();
                 } else {
@@ -925,38 +951,15 @@
                 }
             };
 
-            // নেট বা ক্যাশ হ্যাং ফেইলসেফ টাইমার (যদি কোনো বড় সমস্যা হয় তাও ১৫ সেকেন্ড পর লোড সম্পন্ন হবে)
+            // Failsafe Timer
             const initFailsafeTimeout = () => {
                 setTimeout(() => {
                     triggerHideLoader();
                 }, 15000); 
             };
 
-            // সব সেটআপ ইনিশিয়েট করার জন্য
             initLoaderTracker();
             initFailsafeTimeout();
-
-            // Scroll Reveal Intersection Observer Setup
-            document.addEventListener("DOMContentLoaded", () => {
-                const observerOptions = {
-                    root: null,
-                    rootMargin: '-8% 0px -8% 0px', 
-                    threshold: 0.1
-                };
-
-                const revealObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('active');
-                        } else {
-                            entry.target.classList.remove('active');
-                        }
-                    });
-                }, observerOptions);
-
-                const revealElements = document.querySelectorAll('.scroll-reveal');
-                revealElements.forEach(el => revealObserver.observe(el));
-            }, { once: true });
         })();
     </script>
 </body>
