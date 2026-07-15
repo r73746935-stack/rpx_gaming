@@ -4,7 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPX Gaming | Portfolio</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="RPX Gaming portfolio - Explore professional gaming content, custom graphic design portfolios, and AI prompt engineering by SM Suhrawardi Raj.">
+    <meta name="keywords" content="RPX Gaming, SM Suhrawardi Raj, Graphic Design Bangladesh, Gaming Content Creator, AI Prompt Engineering">
+    <meta name="author" content="SM Suhrawardi Raj">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RPX Gaming | Portfolio">
+    <meta property="og:description" content="Explore professional gaming content, custom graphic design portfolios, and AI prompt engineering by SM Suhrawardi Raj.">
+    <meta property="og:image" content="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="RPX Gaming | Portfolio">
+    <meta property="twitter:description" content="Explore professional gaming content, custom graphic design portfolios, and AI prompt engineering by SM Suhrawardi Raj.">
+    
+    <!-- Resource Hints & Preloads -->
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preload" as="image" href="https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg">
+    <link rel="preload" as="image" href="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png">
     
     <style>
         /* Base Reset & Fixes */
@@ -31,6 +52,12 @@
         /* Global Box Sizing */
         * {
             box-sizing: border-box;
+        }
+
+        /* Accessibility: Outline focus indicators */
+        *:focus-visible {
+            outline: 2px solid #e2c2ff;
+            outline-offset: 4px;
         }
 
         /* Premium & Modern Glassmorphism Loader */
@@ -111,8 +138,8 @@
         }
 
         @keyframes loadingBar {
-            0% { left: -60px; }
-            100% { left: 140px; }
+            0% { transform: translate3d(-60px, 0, 0); left: 0; }
+            100% { transform: translate3d(140px, 0, 0); left: 0; }
         }
 
         /* Ultra-Stabilized Fixed Background (Solves Mobile Overscroll & Address Bar Black Gaps) */
@@ -141,7 +168,7 @@
             position: fixed;
             top: 15px;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate3d(-50%, 0, 0);
             width: 92%;
             max-width: 1100px;
             display: flex;
@@ -180,7 +207,7 @@
             letter-spacing: 0.5px;
             padding: 8px 14px;
             border-radius: 50px;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease, background-color 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -221,7 +248,7 @@
         }
 
         .glass-box:hover {
-            transform: translateY(-3px);
+            transform: translate3d(0, -3px, 0);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
         }
 
@@ -251,7 +278,7 @@
         .info-label {
             font-size: 11px;
             font-weight: 700;
-            color: rgba(226, 194, 255, 0.65);
+            color: rgba(226, 194, 255, 0.75); 
             text-transform: uppercase;
             letter-spacing: 2px;
             padding-left: 4px;
@@ -286,7 +313,7 @@
         .glass-3d-box:hover, .glass-3d-box:active,
         .skill-badge:hover, .skill-badge:active,
         .view-all-btn:hover, .view-all-btn:active {
-            transform: translateY(-6px) scale(1.015);
+            transform: translate3d(0, -6px, 0) scale(1.015);
             background: rgba(255, 255, 255, 0.09);
             border-color: rgba(226, 194, 255, 0.45);
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6), 
@@ -326,7 +353,7 @@
         .social-icons-container .social-icon {
             opacity: 0;
             transform: translate3d(-25px, 0, 0);
-            transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+            transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1), transform 0.55s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             will-change: transform, opacity;
         }
 
@@ -520,13 +547,13 @@
         }
 
         @keyframes infiniteSlide {
-            0% { transform: translateX(0); }
-            28% { transform: translateX(0); }
-            33% { transform: translateX(-25%); }
-            61% { transform: translateX(-25%); }
-            66% { transform: translateX(-50%); }
-            94% { transform: translateX(-50%); }
-            100% { transform: translateX(-75%); }
+            0% { transform: translate3d(0, 0, 0); }
+            28% { transform: translate3d(0, 0, 0); }
+            33% { transform: translate3d(-25%, 0, 0); }
+            61% { transform: translate3d(-25%, 0, 0); }
+            66% { transform: translate3d(-50%, 0, 0); }
+            94% { transform: translate3d(-50%, 0, 0); }
+            100% { transform: translate3d(-75%, 0, 0); }
         }
 
         .view-all-btn {
@@ -576,7 +603,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
             z-index: 10;
             pointer-events: auto !important;
@@ -587,7 +614,6 @@
             width: 30px;
             height: 30px;
             fill: #ffffff;
-            transition: all 0.3s ease;
             pointer-events: none; 
         }
 
@@ -595,7 +621,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(226, 194, 255, 0.6);
             box-shadow: 0 0 20px rgba(226, 194, 255, 0.4), inset 0 0 10px rgba(226, 194, 255, 0.2);
-            transform: translateY(-5px);
+            transform: translate3d(0, -5px, 0);
         }
 
         /* Footer */
@@ -665,9 +691,9 @@
 <body class="loading">
     
     <!-- Premium Fullscreen Loader Layer -->
-    <div id="loader">
+    <div id="loader" role="alert" aria-busy="true" aria-label="Loading page resources">
         <div class="loader-content">
-            <img src="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png" alt="Logo" class="loader-logo">
+            <img src="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png" alt="RPX Gaming Logo Loader" class="loader-logo" width="120" height="120">
             <div class="loader-text">Loading...</div>
             <div class="loader-bar"></div>
         </div>
@@ -677,9 +703,9 @@
     <div class="bg-fixed"></div>
 
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <a href="#" class="nav-logo">
-            <img src="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png" alt="RPX Logo">
+    <nav class="navbar" aria-label="Main Navigation">
+        <a href="#home" class="nav-logo" aria-label="Back to top">
+            <img src="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png" alt="RPX Logo Symbol" width="38" height="38">
         </a>
         <div class="nav-links">
             <a href="#info">Info</a>
@@ -694,7 +720,7 @@
     <!-- Header / Hero Section -->
     <header class="hero-glass-box scroll-reveal" id="home">
         <div class="hero-logo-container">
-            <img src="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png" alt="RPX Main Logo">
+            <img src="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png" alt="RPX Main Logo Banner" width="130" height="130">
         </div>
         <h1 class="main-title">RPX GAMING</h1>
         
@@ -705,9 +731,9 @@
     </header>
 
     <!-- Information Section -->
-    <section id="info" class="glass-box scroll-reveal">
+    <section id="info" class="glass-box scroll-reveal" aria-labelledby="info-title">
         <span class="section-label">About Me</span>
-        <h2 class="section-title">RPX INFORMATION</h2>
+        <h2 id="info-title" class="section-title">RPX INFORMATION</h2>
         
         <div class="info-card">
             <div class="info-row">
@@ -738,50 +764,50 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="glass-box scroll-reveal">
+    <section id="skills" class="glass-box scroll-reveal" aria-labelledby="skills-title">
         <span class="section-label">What I Do</span>
-        <h2 class="section-title">Skills</h2>
+        <h2 id="skills-title" class="section-title">Skills</h2>
         <div class="skills-container">
-            <div class="skill-badge">Graphic Design</div>
-            <div class="skill-badge">AI Prompt Engineering</div>
-            <div class="skill-badge">Website Development</div>
+            <div class="skill-badge" tabindex="0">Graphic Design</div>
+            <div class="skill-badge" tabindex="0">AI Prompt Engineering</div>
+            <div class="skill-badge" tabindex="0">Website Development</div>
         </div>
     </section>
 
     <!-- Works / Design Showcase Section -->
-    <section id="design" class="glass-box scroll-reveal">
+    <section id="design" class="glass-box scroll-reveal" aria-labelledby="design-title">
         <span class="section-label">My Works</span>
-        <h2 class="section-title">Design Showcase</h2>
+        <h2 id="design-title" class="section-title">Design Showcase</h2>
         <div class="slider-container-design">
             <div class="slider-wrapper-design">
-                <img src="https://r73746935-stack.github.io/RPX-designs/thumbnail.png" alt="RPX Design 1">
-                <img src="https://r73746935-stack.github.io/RPX-designs/how%20to%20obtain%20command%20block.png" alt="RPX Design 2">
-                <img src="https://r73746935-stack.github.io/RPX-designs/command%20block%20thumbnail.png" alt="RPX Design 3">
-                <img src="https://r73746935-stack.github.io/RPX-designs/thumbnail.png" alt="RPX Design 1 Clone">
+                <img src="https://r73746935-stack.github.io/RPX-designs/thumbnail.png" alt="RPX Graphic Art Thumbnail Design" width="650" height="250" loading="lazy">
+                <img src="https://r73746935-stack.github.io/RPX-designs/how%20to%20obtain%20command%20block.png" alt="How to obtain command block banner" width="650" height="250" loading="lazy">
+                <img src="https://r73746935-stack.github.io/RPX-designs/command%20block%20thumbnail.png" alt="Minecraft Command Block Art Thumbnail" width="650" height="250" loading="lazy">
+                <img src="https://r73746935-stack.github.io/RPX-designs/thumbnail.png" alt="RPX Graphic Art Thumbnail Design Clone" width="650" height="250" loading="lazy">
             </div>
         </div>
-        <a href="https://drive.google.com/drive/folders/1vY8G8HXObnyl0Ft7OTSzTNw7daZkI22o?usp=drive_link" target="_blank" class="view-all-btn">View All</a>
+        <a href="https://drive.google.com/drive/folders/1vY8G8HXObnyl0Ft7OTSzTNw7daZkI22o?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-all-btn">View All Designs</a>
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="glass-box scroll-reveal">
+    <section id="achievements" class="glass-box scroll-reveal" aria-labelledby="achievements-title">
         <span class="section-label">Credentials</span>
-        <h2 class="section-title">ACHIEVEMENTS</h2>
+        <h2 id="achievements-title" class="section-title">ACHIEVEMENTS</h2>
         <div class="slider-container-badge">
             <div class="slider-wrapper-badge">
-                <img src="https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Image%20Generation.png" alt="Google Badge 1">
-                <img src="https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Generative%20AI.png" alt="Google Badge 2">
-                <img src="https://r73746935-stack.github.io/RPX-achievement/Create%20Image%20Captioning%20Models.png" alt="Google Badge 3">
-                <img src="https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Image%20Generation.png" alt="Google Badge 1 Clone">
+                <img src="https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Image%20Generation.png" alt="Google Cloud Badge - Intro to Image Generation" width="320" height="320" loading="lazy">
+                <img src="https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Generative%20AI.png" alt="Google Cloud Badge - Intro to Generative AI" width="320" height="320" loading="lazy">
+                <img src="https://r73746935-stack.github.io/RPX-achievement/Create%20Image%20Captioning%20Models.png" alt="Google Cloud Badge - Create Image Captioning Models" width="320" height="320" loading="lazy">
+                <img src="https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Image%20Generation.png" alt="Google Cloud Badge - Intro to Image Generation Clone" width="320" height="320" loading="lazy">
             </div>
         </div>
-        <a href="https://drive.google.com/drive/folders/1I0Z7DX8UvqVAjCuH6aN83Cr7ld9ZA04O?usp=drive_link" target="_blank" class="view-all-btn">View All</a>
+        <a href="https://drive.google.com/drive/folders/1I0Z7DX8UvqVAjCuH6aN83Cr7ld9ZA04O?usp=drive_link" target="_blank" rel="noopener noreferrer" class="view-all-btn">View All Achievements</a>
     </section>
 
     <!-- Stack / Tools Section -->
-    <section id="tools" class="glass-box scroll-reveal">
+    <section id="tools" class="glass-box scroll-reveal" aria-labelledby="tools-title">
         <span class="section-label">Stack</span>
-        <h2 class="section-title">Tools I Use</h2>
+        <h2 id="tools-title" class="section-title">Tools I Use</h2>
         <div class="tools-grid">
             <div class="tool-tag">Gemini</div>
             <div class="tool-tag">ChatGPT</div>
@@ -792,27 +818,27 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="glass-box scroll-reveal" style="margin-bottom: 20px;">
+    <section id="contact" class="glass-box scroll-reveal" style="margin-bottom: 20px;" aria-labelledby="contact-title">
         <span class="section-label">Connect With Me</span>
-        <h2 class="section-title">Join The Community</h2>
+        <h2 id="contact-title" class="section-title">Join The Community</h2>
         
         <div class="social-icons-container">
             <!-- Facebook -->
-            <a href="https://www.facebook.com/profile.php?id=61582931245014" target="_blank" class="social-icon" aria-label="Facebook">
-                <svg viewBox="0 0 24 24">
+            <a href="https://www.facebook.com/profile.php?id=61582931245014" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit RPX Gaming Facebook Profile">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
             </a>
             <!-- Instagram -->
-            <a href="https://www.instagram.com/rpxgamingyt29/" target="_blank" class="social-icon" aria-label="Instagram">
-                <svg viewBox="0 0 24 24">
+            <a href="https://www.instagram.com/rpxgamingyt29/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit RPX Gaming Instagram Profile">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204 0.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
                 </svg>
             </a>
-            <!-- Gmail -->
-            <a href="mailto:rpxvisuals@gmail.com" class="social-icon" aria-label="Gmail">
-                <svg viewBox="0 0 24 24">
-                    <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+            <!-- YouTube (Added with High-Compatibility Platform Deep Link) -->
+            <a href="https://www.youtube.com/@RPX_GamingYT" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Visit RPX Gaming YouTube Channel">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                 </svg>
             </a>
         </div>
@@ -825,90 +851,94 @@
 
     <!-- Scripts -->
     <script>
-        // High-Performance Dynamic Loader Mechanism
-        const hideLoader = () => {
-            const loader = document.getElementById('loader');
-            const body = document.body;
-            if (loader && !loader.classList.contains('fade-out')) {
-                loader.classList.add('fade-out');
-                body.classList.remove('loading');
+        (() => {
+            "use strict";
+
+            // High-Performance Dynamic Loader Mechanism
+            const hideLoader = () => {
+                const loader = document.getElementById('loader');
+                const body = document.body;
+                if (loader && !loader.classList.contains('fade-out')) {
+                    loader.classList.add('fade-out');
+                    body.classList.remove('loading');
+                    
+                    // Clean from DOM after fade animation concludes
+                    setTimeout(() => {
+                        loader.remove();
+                    }, 800);
+                }
+            };
+
+            // Tracks exact download/parsing progress of images and system background
+            const initLoaderTracker = () => {
+                const images = Array.from(document.querySelectorAll('img'));
                 
-                // Clean from DOM after fade animation concludes
-                setTimeout(() => {
-                    loader.remove();
-                }, 800);
-            }
-        };
+                // Explicitly map background asset into resource array queue
+                const bgImgUrl = 'https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg';
+                const bgImage = new Image();
+                bgImage.src = bgImgUrl;
+                images.push(bgImage);
 
-        // Tracks exact download/parsing progress of images and system background
-        const initLoaderTracker = () => {
-            const images = Array.from(document.querySelectorAll('img'));
-            
-            // Explicitly map background asset into resource array queue
-            const bgImgUrl = 'https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg';
-            const bgImage = new Image();
-            bgImage.src = bgImgUrl;
-            images.push(bgImage);
+                let totalAssets = images.length;
+                let completedAssets = 0;
 
-            let totalAssets = images.length;
-            let completedAssets = 0;
+                const assetLoaded = () => {
+                    completedAssets++;
+                    if (completedAssets >= totalAssets) {
+                        hideLoader();
+                    }
+                };
 
-            const assetLoaded = () => {
-                completedAssets++;
-                if (completedAssets >= totalAssets) {
-                    hideLoader();
-                }
-            };
-
-            images.forEach(img => {
-                if (img.complete) {
-                    assetLoaded();
-                } else {
-                    img.addEventListener('load', assetLoaded);
-                    img.addEventListener('error', assetLoaded); // failsafe on broken individual link
-                }
-            });
-
-            // Ultimate page ready state observer
-            if (document.readyState === 'complete') {
-                hideLoader();
-            } else {
-                window.addEventListener('load', hideLoader);
-            }
-        };
-
-        // Network/Cache Infinite-Hangs Failsafe Timer (Guarantees user access under 4.5 seconds)
-        const initFailsafeTimeout = () => {
-            setTimeout(() => {
-                hideLoader();
-            }, 4500);
-        };
-
-        // Initialize Loading Infrastructure
-        initLoaderTracker();
-        initFailsafeTimeout();
-
-        // Scroll Reveal Intersection Observer Setup
-        document.addEventListener("DOMContentLoaded", () => {
-            const observerOptions = {
-                root: null,
-                rootMargin: '-8% 0px -8% 0px', 
-                threshold: 0.1
-            };
-
-            const revealObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
+                images.forEach(img => {
+                    if (img.complete) {
+                        assetLoaded();
                     } else {
-                        entry.target.classList.remove('active');
+                        img.addEventListener('load', assetLoaded, { once: true });
+                        img.addEventListener('error', assetLoaded, { once: true }); // failsafe on broken individual link
                     }
                 });
-            }, observerOptions);
 
-            const revealElements = document.querySelectorAll('.scroll-reveal');
-            revealElements.forEach(el => revealObserver.observe(el));
-        });
+                // Ultimate page ready state observer
+                if (document.readyState === 'complete') {
+                    hideLoader();
+                } else {
+                    window.addEventListener('load', hideLoader, { once: true });
+                }
+            };
+
+            // Network/Cache Infinite-Hangs Failsafe Timer (Guarantees user access under 4.5 seconds)
+            const initFailsafeTimeout = () => {
+                setTimeout(() => {
+                    hideLoader();
+                }, 4500);
+            };
+
+            // Initialize Loading Infrastructure
+            initLoaderTracker();
+            initFailsafeTimeout();
+
+            // Scroll Reveal Intersection Observer Setup
+            document.addEventListener("DOMContentLoaded", () => {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-8% 0px -8% 0px', 
+                    threshold: 0.1
+                };
+
+                const revealObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                        } else {
+                            entry.target.classList.remove('active');
+                        }
+                    });
+                }, observerOptions);
+
+                const revealElements = document.querySelectorAll('.scroll-reveal');
+                revealElements.forEach(el => revealObserver.observe(el));
+            }, { once: true });
+        })();
     </script>
 </body>
 </html>
