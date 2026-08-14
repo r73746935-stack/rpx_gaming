@@ -2,518 +2,559 @@
 <html lang="en">    
 <head>    
 <meta charset="UTF-8" />    
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />    
-<title>RPX Gaming — Portfolio</title>    
+<meta name="viewport" content="width=1280" />    
+<title>RPX Visuals — Portfolio</title>    
 <link rel="preconnect" href="https://fonts.googleapis.com" />    
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />    
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />    
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />    
 <style>    
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }    
   html { scroll-behavior: smooth; }    
   body {    
     font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;    
-    -webkit-tap-highlight-color: transparent;    
-    background: #08080b;    
+    background: #0d0e14;    
     color: #fff;    
-    overflow-x: hidden;    
+    min-width: 1280px;
   }    
-  *:focus-visible { outline: 2px solid rgba(255,255,255,0.85); outline-offset: 3px; }    
-  ::selection { background: rgba(255,31,68,0.4); color: #fff; }    
-    
+  
   .font-display { font-family: 'Outfit', sans-serif; }    
     
   .text-gradient-red {    
-    background: linear-gradient(135deg, #ff1f44 0%, #ff6b8a 50%, #ff1f44 100%);    
+    background: linear-gradient(135deg, #ff3b5c 0%, #ff8da5 50%, #ff3b5c 100%);    
     -webkit-background-clip: text;    
     background-clip: text;    
     -webkit-text-fill-color: transparent;    
-  }    
-    
-  /* ===== Loading Screen ===== */    
-  #loading-screen {    
-    position: fixed; inset: 0; z-index: 100;    
-    display: flex; flex-direction: column; align-items: center; justify-content: center;    
-    background: #08080b;    
-  }    
-  .loader-glow {    
-    position: absolute; left: 50%; top: 50%; width: 420px; height: 420px;    
-    transform: translate(-50%,-50%); border-radius: 50%; opacity: 0.4; filter: blur(120px);    
-    background: radial-gradient(circle, rgba(255,31,68,0.5) 0%, transparent 70%);    
-    pointer-events: none;    
-  }    
-  .loader-logo {    
-    position: relative; margin-bottom: 40px;    
-    display: flex; align-items: center; justify-content: center;    
-  }    
-  .loader-logo img {    
-    height: 80px; width: 80px; user-select: none;    
-    filter: saturate(1.05) drop-shadow(0 0 18px rgba(255,31,68,0.35));    
-  }    
-  .dot-spinner { position: relative; width: 70px; height: 70px; }    
-  .ios-dot {    
-    position: absolute; inset: 0; transform-origin: 35px 35px;    
-    animation: iosDotsFade 1.2s linear infinite;    
-  }    
-  .ios-dot::after {    
-    content: ''; display: block; position: absolute; top: 2px; left: 31px;    
-    width: 8px; height: 8px; border-radius: 50%;    
-    background: rgba(255,255,255,0.9); box-shadow: 0 0 6px rgba(255,255,255,0.35);    
-  }    
-  @keyframes iosDotsFade { 0%{opacity:1} 100%{opacity:0.15} }    
-  .loader-text {    
-    margin-top: 32px; font-family: 'Outfit',sans-serif;    
-    font-size: 11px; font-weight: 700; text-transform: uppercase;    
-    letter-spacing: 0.4em; color: rgba(255,255,255,0.4);    
+    text-shadow: 0 0 20px rgba(255, 59, 92, 0.4);
   }    
     
   /* ===== Navbar ===== */    
   .navbar {    
     position: fixed; top: 0; left: 0; right: 0; z-index: 50;    
-    transition: all 0.5s; padding: 20px 0;    
-  }    
-  .navbar.scrolled {    
-    padding: 12px 0;    
-    border-bottom: 1px solid rgba(255,255,255,0.05);    
-    background: rgba(8,8,11,0.8);    
+    padding: 20px 0;    
+    border-bottom: 1px solid rgba(255,255,255,0.18);    
+    background: rgba(13,14,20,0.92);    
     backdrop-filter: blur(20px);    
-    -webkit-backdrop-filter: blur(20px);    
   }    
   .nav-inner {    
-    max-width: 1280px; margin: 0 auto; padding: 0 24px;    
-    display: flex; align-items: center; justify-content: space-between;    
+    max-width: 1320px; margin: 0 auto; padding: 0 32px;    
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
   }    
-  @media (min-width:1024px) { .nav-inner { padding: 0 40px; } }    
-  .brand { display: flex; align-items: center; gap: 12px; cursor: pointer; background: none; border: none; transition: opacity 0.3s; }    
-  .brand:hover { opacity: 0.9; }    
-  .brand img { height: 36px; width: 36px; user-select: none; }    
-  .brand-name { font-family: 'Outfit',sans-serif; font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: #fff; }    
-  .nav-links { display: none; align-items: center; gap: 4px; }    
-  @media (min-width:768px) { .nav-links { display: flex; } }    
+  .brand { display: flex; align-items: center; gap: 14px; cursor: pointer; background: none; border: none; }    
+  .brand img { height: 50px; width: auto; border-radius: 8px; }    
+  .brand-name { font-family: 'Outfit',sans-serif; font-size: 28px; font-weight: 800; color: #fff; }    
+  .nav-links { display: flex; align-items: center; gap: 16px; }    
   .nav-links button {    
-    border-radius: 9999px; padding: 8px 16px; font-size: 14px; font-weight: 500;    
-    border: none; background: none; cursor: pointer; transition: all 0.3s;    
+    border-radius: 9999px; padding: 12px 26px; font-size: 18px; font-weight: 700;    
+    border: none; background: none; cursor: pointer; transition: all 0.3s; color: #ffffff;
   }    
-  .nav-links button.active { background: rgba(255,255,255,0.08); color: #fff; }    
-  .nav-links button:not(.active) { color: rgba(255,255,255,0.55); }    
-  .nav-links button:not(.active):hover { color: #fff; }    
-  .nav-cta { display: none; }    
-  @media (min-width:768px) { .nav-cta { display: block; } }    
+  .nav-links button.active { background: rgba(255,255,255,0.22); color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.5); }    
+  .nav-links button:hover { color: #fff; background: rgba(255,255,255,0.15); }    
   .nav-cta button {    
-    border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15);    
-    background: rgba(255,255,255,0.05); padding: 8px 20px; font-size: 14px; font-weight: 600;    
+    border-radius: 9999px; border: 2px solid rgba(255,255,255,0.4);    
+    background: rgba(255,255,255,0.15); padding: 14px 30px; font-size: 18px; font-weight: 800;    
     color: #fff; cursor: pointer; transition: all 0.3s;    
   }    
-  .nav-cta button:hover { border-color: rgba(255,80,80,0.4); background: rgba(255,80,80,0.1); }    
-  .nav-toggle {    
-    display: flex; align-items: center; justify-content: center;    
-    height: 40px; width: 40px; border-radius: 9999px;    
-    border: 1px solid rgba(255,255,255,0.1); background: none; color: #fff; cursor: pointer;    
-  }    
-  @media (min-width:768px) { .nav-toggle { display: none; } }    
-  .mobile-menu {    
-    overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05);    
-    background: rgba(8,8,11,0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);    
-    transition: max-height 0.5s, opacity 0.5s; max-height: 0; opacity: 0;    
-  }    
-  .mobile-menu.open { max-height: 480px; opacity: 1; }    
-  @media (min-width:768px) { .mobile-menu { display: none; } }    
-  .mobile-menu nav { display: flex; flex-direction: column; gap: 4px; padding: 16px 24px; }    
-  .mobile-menu button {    
-    border-radius: 12px; padding: 12px 16px; text-align: left; font-size: 16px; font-weight: 500;    
-    border: none; background: none; cursor: pointer; transition: all 0.3s;    
-  }    
-  .mobile-menu button.active { background: rgba(255,255,255,0.08); color: #fff; }    
-  .mobile-menu button:not(.active) { color: rgba(255,255,255,0.6); }    
+  .nav-cta button:hover { border-color: #ff3b5c; background: rgba(255,59,92,0.25); }    
     
-  /* ===== Hero ===== */    
-  .hero { position: relative; min-height: 100vh; overflow: hidden; background: #08080b; }    
+  /* ===== Hero Section (Slightly Compact Height, Softer Dark Overlay, Larger Text) ===== */    
+  .hero { 
+    position: relative; 
+    min-height: 88vh; /* Reduced height from 100vh */
+    overflow: hidden; 
+    background: #111218; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    padding: 110px 0 60px; /* Reduced vertical padding */
+  }    
   .hero-bg { position: absolute; inset: 0; }    
-  .hero-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }    
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; }    
   .hero-bg::after {    
     content: ''; position: absolute; inset: 0;    
-    background: linear-gradient(to bottom, rgba(8,8,11,0.7), rgba(8,8,11,0.8), #08080b);    
-  }    
-  .hero-bg::before {    
-    content: ''; position: absolute; inset: 0; z-index: 1;    
-    background: linear-gradient(to right, #08080b, transparent, rgba(8,8,11,0.4));    
-  }    
-  .hero-glow {    
-    position: absolute; left: -128px; top: 33%; width: 400px; height: 400px;    
-    border-radius: 50%; opacity: 0.3; filter: blur(140px); pointer-events: none;    
-    background: radial-gradient(circle, rgba(255,31,68,0.4) 0%, transparent 70%);    
+    /* Softer Overlay Gradient (Less pitch black) */
+    background: linear-gradient(to bottom, rgba(13,14,20,0.5), rgba(13,14,20,0.72), #0d0e14);    
   }    
   .hero-content {    
-    position: relative; z-index: 10; max-width: 1280px; margin: 0 auto;    
-    padding: 96px 24px 80px; min-height: 100vh;    
-    display: flex; flex-direction: column; justify-content: center;    
+    position: relative; z-index: 10; max-width: 1150px; margin: 0 auto;    
+    padding: 10px 32px 30px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;    
   }    
-  @media (min-width:1024px) { .hero-content { padding: 96px 40px 80px; } }    
+
   .hero-badge {    
-    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 24px;    
-    border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1);    
-    background: rgba(255,255,255,0.05); padding: 8px 16px;    
-    font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.25em;    
-    color: rgba(255,255,255,0.7); width: fit-content;    
+    display: inline-flex; align-items: center; gap: 12px; margin-bottom: 24px;    
+    border-radius: 9999px; border: 2px solid rgba(255,255,255,0.35);    
+    background: rgba(255,255,255,0.18); padding: 16px 32px;    
+    font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em;    
+    color: #ffffff; text-shadow: 0 2px 6px rgba(0,0,0,0.7);
   }    
-  .hero-badge .dot { height: 6px; width: 6px; border-radius: 50%; background: #ef4444; }    
+  .hero-badge .dot { height: 12px; width: 12px; border-radius: 50%; background: #ff2a4b; box-shadow: 0 0 16px #ff2a4b; }    
+  
   .hero h1 {    
-    font-family: 'Outfit',sans-serif; font-size: 3rem; font-weight: 800;    
-    line-height: 1.05; letter-spacing: -0.02em; color: #fff;    
+    font-family: 'Outfit', sans-serif; font-size: 94px; font-weight: 900; /* Increased to 94px */
+    line-height: 1.12; color: #ffffff; text-shadow: 0 6px 30px rgba(0,0,0,0.95);
+    letter-spacing: -0.01em;    
   }    
-  @media (min-width:640px) { .hero h1 { font-size: 3.75rem; } }    
-  @media (min-width:1024px) { .hero h1 { font-size: 4.5rem; } }    
   .hero-name {    
-    margin-top: 16px; font-family: 'Outfit',sans-serif; font-size: 1.5rem; font-weight: 700;    
-    letter-spacing: -0.02em;    
+    margin-top: 24px; font-family: 'Outfit', sans-serif; font-size: 46px; font-weight: 800; /* Increased to 46px */   
   }    
-  @media (min-width:640px) { .hero-name { font-size: 1.875rem; } }    
   .hero-desc {    
-    margin-top: 24px; max-width: 36rem; font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.65);    
+    margin-top: 24px; max-width: 62rem; font-size: 30px; line-height: 1.55; color: #ffffff; /* Increased to 30px */   
+    font-weight: 600; text-shadow: 0 2px 12px rgba(0,0,0,0.95);
   }    
-  @media (min-width:640px) { .hero-desc { font-size: 1.125rem; } }    
-  .hero-btns { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 16px; }    
+
+  .hero-btns { margin-top: 40px; display: flex; justify-content: center; gap: 24px; }    
   .btn-primary {    
-    border-radius: 9999px; background: #dc2626; padding: 14px 28px;    
-    font-size: 14px; font-weight: 700; color: #fff; border: none; cursor: pointer;    
-    box-shadow: 0 10px 20px rgba(220,38,38,0.25); transition: all 0.3s;    
+    border-radius: 9999px; background: #dc2626; padding: 22px 52px;    
+    font-size: 24px; font-weight: 800; color: #fff; border: none; cursor: pointer;    
+    box-shadow: 0 12px 35px rgba(220,38,38,0.5); transition: all 0.3s;
   }    
-  .btn-primary:hover { background: #ef4444; box-shadow: 0 10px 30px rgba(239,68,68,0.4); }    
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 45px rgba(220,38,38,0.7); }
   .btn-outline {    
-    border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); padding: 14px 28px;    
-    font-size: 14px; font-weight: 700; color: #fff; background: none; cursor: pointer;    
-    transition: all 0.3s;    
+    border-radius: 9999px; border: 2.5px solid rgba(255,255,255,0.45); padding: 22px 52px;    
+    font-size: 24px; font-weight: 800; color: #fff; background: rgba(255,255,255,0.18); cursor: pointer; transition: all 0.3s;
   }    
-  .btn-outline:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }    
-  .social-rail {    
-    position: absolute; left: 24px; top: 50%; z-index: 10; transform: translateY(-50%);    
-    display: none; flex-direction: column; align-items: center; gap: 20px;    
-  }    
-  @media (min-width:1024px) { .social-rail { display: flex; } }    
-  .social-rail .line { width: 1px; height: 96px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.2), transparent); }    
-  .social-rail a { color: rgba(255,255,255,0.45); transition: color 0.3s; }    
-  .social-rail a:hover { color: #fff; }    
-  .scroll-hint {    
-    position: absolute; bottom: 32px; left: 50%; z-index: 10; transform: translateX(-50%);    
-    display: none; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.4);    
-  }    
-  @media (min-width:640px) { .scroll-hint { display: flex; } }    
-  .scroll-hint span { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3em; }    
-    
+  .btn-outline:hover { background: rgba(255,255,255,0.3); transform: translateY(-3px); }
+
+  /* ===== ANIMATED SCROLL DOWN INDICATOR ===== */
+  .scroll-indicator {
+    margin-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+  }
+  .scroll-indicator:hover {
+    opacity: 1;
+    transform: translateY(3px);
+  }
+  .scroll-indicator span {
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  }
+  .mouse-icon {
+    width: 28px;
+    height: 46px;
+    border: 2.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+  .mouse-wheel {
+    width: 5px;
+    height: 9px;
+    background: #ff3b5c;
+    border-radius: 4px;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px #ff3b5c;
+    animation: scrollWheelAnim 1.8s ease-in-out infinite;
+  }
+
+  @keyframes scrollWheelAnim {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 18px); }
+  }
+
   /* ===== About ===== */    
-  .about { position: relative; overflow: hidden; background: #0c0c11; padding: 112px 0; }    
-  @media (min-width:1024px) { .about { padding: 144px 0; } }    
-  .about-glow {    
-    position: absolute; right: 0; top: 0; width: 500px; height: 500px;    
-    border-radius: 50%; opacity: 0.2; filter: blur(150px); pointer-events: none;    
-    background: radial-gradient(circle, rgba(255,31,68,0.3) 0%, transparent 70%);    
-  }    
+  .about { position: relative; background: #0f1017; padding: 140px 0; }    
   .about-grid {    
-    position: relative; max-width: 1280px; margin: 0 auto; padding: 0 24px;    
-    display: grid; gap: 64px; align-items: center;    
+    max-width: 1280px; margin: 0 auto; padding: 0 32px;    
+    display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;    
   }    
-  @media (min-width:1024px) { .about-grid { grid-template-columns: 0.9fr 1.1fr; padding: 0 40px; } }    
-  .portrait-wrap { position: relative; max-width: 28rem; margin: 0 auto; }    
-  .portrait-border { position: absolute; inset: -12px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); }    
-  .portrait-img { position: relative; overflow: hidden; border-radius: 16px; }    
-  .portrait-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }    
-  .portrait-img::after {    
-    content: ''; position: absolute; inset: 0;    
-    background: linear-gradient(to top, #0c0c11, transparent, transparent);    
-  }    
-  .portrait-badge {    
-    position: absolute; bottom: -20px; right: -20px; border-radius: 16px;    
-    border: 1px solid rgba(255,255,255,0.1); background: #08080b;    
-    padding: 16px 20px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.5);    
-  }    
-  .portrait-badge .big { font-family: 'Outfit',sans-serif; font-size: 30px; font-weight: 800; color: #fff; }    
-  .portrait-badge .small { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: rgba(255,255,255,0.45); }    
-  .section-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.3em; color: rgba(239,68,68,0.8); margin-bottom: 16px; }    
-  .section-title {    
-    font-family: 'Outfit',sans-serif; font-size: 2.25rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: #fff;    
-  }    
-  @media (min-width:640px) { .section-title { font-size: 3rem; } }    
-  .about-text { margin-top: 24px; display: flex; flex-direction: column; gap: 20px; font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.65); }    
-  .stats { margin-top: 40px; display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }    
-  .stat-card { border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); padding: 20px 16px; text-align: center; }    
-  .stat-card .val { font-family: 'Outfit',sans-serif; font-size: 30px; font-weight: 800; color: #fff; }    
-  .stat-card .lbl { margin-top: 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: rgba(255,255,255,0.45); }    
-    
-  /* ===== Slider ===== */    
-  .slider-wrap { position: relative; width: 100%; overflow: hidden; }    
-  .slider-fade-left { position: absolute; inset-y: 0; left: 0; z-index: 10; width: 96px; background: linear-gradient(to right, #08080b, transparent); pointer-events: none; }    
-  .slider-fade-right { position: absolute; inset-y: 0; right: 0; z-index: 10; width: 96px; background: linear-gradient(to left, #08080b, transparent); pointer-events: none; }    
-  .slider-track { display: flex; width: 200%; will-change: transform; }    
-  .slider-track.animate-design { animation: slideDesign 12s infinite cubic-bezier(0.25,1,0.5,1); }    
-  .slider-track.animate-badge { animation: slideBadge 12s infinite cubic-bezier(0.25,1,0.5,1); }    
+  .portrait-wrap { position: relative; width: 100%; max-width: 32rem; margin: 0 auto; }    
+  .portrait-img { overflow: hidden; border-radius: 18px; border: 2px solid rgba(255,255,255,0.2); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }    
+  .portrait-img img { width: 100%; height: auto; display: block; object-fit: cover; }    
+  
+  .section-label { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.25em; color: #ff3b5c; margin-bottom: 12px; }    
+  .section-title { font-family: 'Outfit',sans-serif; font-size: 48px; font-weight: 800; line-height: 1.2; color: #ffffff; }    
+  .about-text { margin-top: 24px; display: flex; flex-direction: column; gap: 18px; font-size: 21px; line-height: 1.65; color: #ffffff; font-weight: 600; }    
+
+  /* ===== Symbol Section ===== */
+  .symbol-section { 
+    position: relative; 
+    background: #0d0e14; 
+    padding: 140px 0; 
+    border-top: 1px solid rgba(255,255,255,0.08); 
+  }
+  .symbol-grid { max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .symbol-img-wrap { 
+    width: 100%; max-width: 28rem; margin: 0 auto; 
+    border-radius: 20px; border: 1.5px solid rgba(255,255,255,0.18); 
+    overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.6); 
+  }
+  .symbol-img-wrap img { width: 100%; height: auto; display: block; }
+  .meaning-box { margin-top: 20px; display: flex; flex-direction: column; gap: 14px; font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.9); font-weight: 500; }
+  .more-meaning { display: none; margin-top: 14px; flex-direction: column; gap: 14px; }
+  
+  .btn-read-more {
+    margin-top: 18px; align-self: flex-start;
+    border-radius: 9999px; border: 1.5px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.08); color: #fff;
+    padding: 12px 28px; font-size: 17px; font-weight: 700;
+    cursor: pointer; transition: all 0.3s;
+  }
+  .btn-read-more:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.5); box-shadow: 0 0 15px rgba(255,255,255,0.1); }
+
+  /* ===== Continuous Slider ===== */    
+  .slider-wrap { position: relative; width: 100%; overflow: hidden; margin-top: 30px; }    
+  .slider-track { display: flex; gap: 24px; width: max-content; }    
+  .slider-track.animate-design { animation: slideDesign 35s linear infinite; }    
+  
   @keyframes slideDesign {    
-    0%,28% { transform: translate3d(0,0,0); }    
-    33%,61% { transform: translate3d(-25%,0,0); }    
-    66%,94% { transform: translate3d(-50%,0,0); }    
-    100% { transform: translate3d(-75%,0,0); }    
+    0% { transform: translateX(0); }    
+    100% { transform: translateX(-50%); }    
   }    
-  @keyframes slideBadge {    
-    0%,28% { transform: translate3d(0,0,0); }    
-    33%,61% { transform: translate3d(-25%,0,0); }    
-    66%,94% { transform: translate3d(-50%,0,0); }    
-    100% { transform: translate3d(-75%,0,0); }    
-  }    
-  .slider-item { width: 25%; flex-shrink: 0; padding: 0 12px; }    
-  .slider-img-wrap { overflow: hidden; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); }    
-  .slider-img-wrap.landscape { aspect-ratio: 16/9; }    
-  .slider-img-wrap.square { aspect-ratio: 1/1; }    
-  .slider-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s; }    
-  .slider-wrap:hover .slider-img-wrap img { transform: scale(1.05); }    
+  .slider-item { height: 380px; flex-shrink: 0; }    
+  .slider-img-wrap { height: 100%; overflow: hidden; border-radius: 14px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); }    
+  .slider-img-wrap img { height: 100%; width: auto; object-fit: contain; display: block; pointer-events: none; }    
     
-  /* ===== Sections ===== */    
-  .section { position: relative; overflow: hidden; padding: 112px 0; }    
-  @media (min-width:1024px) { .section { padding: 144px 0; } }    
-  .section-inner { position: relative; max-width: 1280px; margin: 0 auto; padding: 0 24px; }    
-  @media (min-width:1024px) { .section-inner { padding: 0 40px; } }    
-  .section-header { margin-bottom: 56px; max-width: 42rem; }    
-  .section-desc { margin-top: 20px; font-size: 1rem; line-height: 1.6; color: rgba(255,255,255,0.6); }    
-  .bg-dark { background: #08080b; }    
-  .bg-light { background: #0c0c11; }    
-  .section-glow-top {    
-    position: absolute; left: 50%; top: 0; width: 600px; height: 400px;    
-    transform: translateX(-50%); border-radius: 50%; opacity: 0.2; filter: blur(150px); pointer-events: none;    
-    background: radial-gradient(circle, rgba(255,31,68,0.25) 0%, transparent 70%);    
+  /* ===== Portfolio Section ===== */    
+  .section { padding: 140px 0; }    
+  .section-inner { max-width: 1280px; margin: 0 auto; padding: 0 32px; }    
+  .section-header { margin-bottom: 40px; max-width: 52rem; }    
+  .section-desc { margin-top: 16px; font-size: 21px; line-height: 1.6; color: #ffffff; font-weight: 600; }    
+  .bg-dark { background: #0d0e14; }    
+  .bg-light { background: #12131c; }    
+  
+  .view-all-btn-group { 
+    margin-top: 40px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
   }    
-  .section-glow-bottom {    
-    position: absolute; bottom: 0; left: 50%; width: 600px; height: 400px;    
-    transform: translateX(-50%); border-radius: 50%; opacity: 0.25; filter: blur(150px); pointer-events: none;    
-    background: radial-gradient(circle, rgba(255,31,68,0.35) 0%, transparent 70%);    
-  }    
-  .view-all-btn {    
-    margin-top: 40px; text-align: center;    
-  }    
-  .view-all-btn a {    
-    display: inline-flex; align-items: center; gap: 8px; border-radius: 9999px;    
-    border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);    
-    padding: 12px 28px; font-size: 14px; font-weight: 700; text-transform: uppercase;    
-    letter-spacing: 0.15em; color: #fff; text-decoration: none; transition: all 0.3s;    
-  }    
-  .view-all-btn a:hover { border-color: rgba(255,80,80,0.4); background: rgba(255,80,80,0.1); }    
-    
-  /* ===== Skills ===== */    
-  .skills-list { display: flex; flex-wrap: wrap; gap: 12px; }    
+  
+  .showcase-trigger-btn {
+    display: inline-flex; align-items: center; gap: 12px; border-radius: 9999px;
+    border: 2px solid #ff3b5c; background: rgba(255, 59, 92, 0.2);
+    padding: 18px 42px; font-size: 19px; font-weight: 800; text-transform: uppercase;
+    color: #fff; cursor: pointer; transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(255, 59, 92, 0.25);
+  }
+  .showcase-trigger-btn:hover {
+    background: #ff3b5c; box-shadow: 0 12px 30px rgba(255, 59, 92, 0.5);
+    transform: translateY(-3px);
+  }
+  .showcase-trigger-btn:active {
+    transform: translateY(0) scale(0.96);
+  }
+
+  /* ===== Skills Tag ===== */    
+  .skills-list { display: flex; flex-wrap: wrap; gap: 20px; }    
   .skill-tag {    
-    display: inline-flex; align-items: center; gap: 8px; border-radius: 9999px;    
-    border: 1px solid; padding: 10px 20px; font-size: 14px; font-weight: 600;    
+    display: inline-flex; align-items: center; border-radius: 9999px;    
+    border: 2px solid rgba(255, 255, 255, 0.35); background: rgba(255, 255, 255, 0.15);    
+    padding: 20px 40px; font-size: 22px; font-weight: 800; color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   }    
-  .skill-tag .cat { font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; opacity: 0.5; }    
-  .skill-design { border-color: rgba(14,165,233,0.2); background: rgba(14,165,233,0.05); color: #bae6fd; }    
-  .skill-video { border-color: rgba(239,68,68,0.2); background: rgba(239,68,68,0.05); color: #fecaca; }    
-  .skill-ai { border-color: rgba(16,185,129,0.2); background: rgba(16,185,129,0.05); color: #a7f3d0; }    
-    
-  /* ===== Contact ===== */    
-  .contact-inner { position: relative; max-width: 48rem; margin: 0 auto; padding: 0 24px; text-align: center; }    
-  @media (min-width:1024px) { .contact-inner { padding: 0 40px; } }    
-  .contact-social { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; }    
+
+  /* ===== Contact Section ===== */    
+  .contact-inner { max-width: 52rem; margin: 0 auto; padding: 0 32px; text-align: center; }    
+  .contact-social { margin-top: 35px; display: flex; align-items: center; justify-content: center; gap: 24px; }    
   .contact-social a {    
-    display: flex; align-items: center; justify-content: center; height: 48px; width: 48px;    
-    border-radius: 9999px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05);    
-    color: rgba(255,255,255,0.6); transition: all 0.3s; text-decoration: none;    
+    display: flex; align-items: center; justify-content: center; height: 72px; width: 72px;    
+    border-radius: 9999px; border: 2.5px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.15);    
+    color: #fff; text-decoration: none; transition: all 0.3s;
   }    
-  .contact-social a:hover { border-color: rgba(255,80,80,0.4); background: rgba(255,80,80,0.1); color: #fff; }    
+  .contact-social a:hover {
+    border-color: #ff3b5c; background: rgba(255, 59, 92, 0.25); transform: translateY(-4px);
+  }
     
   /* ===== Footer ===== */    
-  .footer { border-top: 1px solid rgba(255,255,255,0.05); background: #08080b; padding: 40px 0; }    
+  .footer { border-top: 1px solid rgba(255,255,255,0.15); background: #0d0e14; padding: 45px 0; }    
   .footer-inner {    
-    max-width: 1280px; margin: 0 auto; padding: 0 24px;    
-    display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center;    
+    max-width: 1280px; margin: 0 auto; padding: 0 32px;    
+    display: flex; justify-content: space-between; align-items: center;    
   }    
-  @media (min-width:640px) { .footer-inner { flex-direction: row; justify-content: space-between; text-align: left; padding: 0 40px; } }    
-  .footer-brand { display: flex; align-items: center; gap: 12px; }    
-  .footer-brand img { height: 32px; width: 32px; user-select: none; }    
-  .footer-brand .name { font-family: 'Outfit',sans-serif; font-size: 16px; font-weight: 800; color: #fff; }    
-  .footer-brand .sub { font-size: 12px; color: rgba(255,255,255,0.4); }    
-  .footer-copy { font-size: 12px; color: rgba(255,255,255,0.4); }    
-  .footer-social { display: flex; align-items: center; gap: 12px; }    
-  .footer-social a { color: rgba(255,255,255,0.4); transition: color 0.3s; text-decoration: none; }    
-  .footer-social a:hover { color: #fff; }    
-  .footer-social svg { width: 20px; height: 20px; }    
-    
-  /* ===== Reveal ===== */    
-  .reveal-item { opacity: 0; transform: translate3d(0,30px,0); transition: opacity 0.7s cubic-bezier(0.25,1,0.5,1), transform 0.7s cubic-bezier(0.25,1,0.5,1); will-change: transform, opacity; }    
-  .reveal-item.is-visible { opacity: 1; transform: translate3d(0,0,0); }    
-  .delay-1 { transition-delay: 0.08s; }    
-  .delay-2 { transition-delay: 0.16s; }    
-  .delay-3 { transition-delay: 0.24s; }    
-  .delay-4 { transition-delay: 0.32s; }    
-    
+  .footer-brand { display: flex; align-items: center; gap: 16px; }    
+  .footer-brand img { height: 48px; width: auto; border-radius: 8px; }    
+  .footer-brand .name { font-family: 'Outfit',sans-serif; font-size: 22px; font-weight: 800; color: #fff; }    
+  .footer-brand .sub { font-size: 15px; color: #ffffff; font-weight: 600; }    
+  .footer-copy { font-size: 18px; color: #ffffff; font-weight: 700; }    
+  
   svg { display: inline-block; vertical-align: middle; }    
-  .icon-sm { width: 24px; height: 24px; }    
-  .icon-xs { width: 16px; height: 16px; }    
-  .icon-md { width: 20px; height: 20px; }    
-    
-  @media (prefers-reduced-motion: reduce) {    
-    .reveal-item { opacity: 1 !important; transform: none !important; transition: none; }    
-    .slider-track { animation: none !important; }    
-    .ios-dot { animation: none !important; }    
-  }    
+  .icon-lg { width: 36px; height: 36px; }    
+  .icon-xs { width: 22px; height: 22px; }    
+
+  /* ==========================================================
+     SHOWCASE MODAL COMPONENT
+  ========================================================== */
+  .showcase-modal {
+    position: fixed; inset: 0; z-index: 99999;
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px; visibility: hidden; opacity: 0;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+  }
+  .showcase-modal.active {
+    visibility: visible; opacity: 1;
+  }
+
+  .showcase-backdrop {
+    position: absolute; inset: 0;
+    background: rgba(13, 14, 20, 0.92);
+    backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  }
+
+  .showcase-container {
+    position: relative; z-index: 2;
+    width: 1180px; max-width: 94%; height: 850px; max-height: 88vh;
+    background: rgba(18, 19, 28, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 24px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.95), 0 0 50px rgba(0, 0, 0, 0.8);
+    display: flex; flex-direction: column; overflow: hidden;
+    transform: scale(0.96) translateY(20px);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .showcase-modal.active .showcase-container {
+    transform: scale(1) translateY(0);
+  }
+
+  .showcase-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 32px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .showcase-brand {
+    font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800;
+    letter-spacing: 0.05em; display: flex; align-items: center; gap: 10px;
+  }
+  .showcase-brand .live-badge {
+    background: rgba(255, 59, 92, 0.2); border: 1px solid #ff3b5c;
+    color: #ff3b5c; font-size: 11px; font-weight: 800; padding: 4px 10px;
+    border-radius: 999px; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  .showcase-close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    color: #fff; width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.25s ease;
+  }
+  .showcase-close-btn:hover {
+    background: #ff3b5c; border-color: #ff3b5c;
+    transform: scale(1.08) rotate(90deg);
+    box-shadow: 0 0 20px rgba(255, 59, 92, 0.6);
+  }
+  .showcase-close-btn:active { transform: scale(0.92); }
+
+  .showcase-body {
+    position: relative; flex: 1; display: flex; align-items: center;
+    justify-content: center; padding: 20px 70px; overflow: hidden;
+  }
+
+  .showcase-viewport {
+    position: relative; width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .showcase-slides-wrapper {
+    position: relative; width: 100%; height: 100%;
+  }
+
+  .showcase-slide {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 10px; box-sizing: border-box;
+    opacity: 0; visibility: hidden;
+    transform: scale(0.97);
+    transition: opacity 0.45s cubic-bezier(0.2, 0, 0, 1), transform 0.45s cubic-bezier(0.2, 0, 0, 1), visibility 0.45s;
+    will-change: opacity, transform;
+  }
+
+  .showcase-slide.active {
+    opacity: 1; visibility: visible;
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  .showcase-img-card {
+    max-width: 100%; max-height: 100%;
+    width: auto; height: auto;
+    object-fit: contain;
+    border-radius: 16px; border: 1.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+    background: #0d0e14;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+
+  .showcase-nav-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    z-index: 10; width: 54px; height: 54px; border-radius: 50%;
+    background: rgba(13, 14, 20, 0.7); border: 1.5px solid rgba(255, 255, 255, 0.3);
+    color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+    backdrop-filter: blur(12px); transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+  }
+  .showcase-nav-btn.prev-btn { left: 16px; }
+  .showcase-nav-btn.next-btn { right: 16px; }
+
+  .showcase-nav-btn:hover {
+    background: rgba(255, 59, 92, 0.4); border-color: #ff3b5c;
+    box-shadow: 0 0 20px rgba(255, 59, 92, 0.5);
+    transform: translateY(-50%) scale(1.1);
+  }
+  .showcase-nav-btn:active {
+    transform: translateY(-50%) scale(0.92);
+  }
+
+  .showcase-footer {
+    padding: 18px 32px; border-top: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    background: rgba(13, 14, 20, 0.6);
+  }
+
+  .showcase-info { display: flex; flex-direction: column; gap: 2px; }
+  .showcase-title-text { font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: #fff; }
+  .showcase-counter { font-size: 14px; font-weight: 800; color: #ff3b5c; letter-spacing: 0.05em; }
+
+  .showcase-dots { display: flex; align-items: center; gap: 8px; }
+  .showcase-dot {
+    width: 9px; height: 9px; border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25); border: none; cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .showcase-dot.active {
+    width: 26px; background: #ff3b5c; box-shadow: 0 0 10px rgba(255, 59, 92, 0.6);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .showcase-modal, .showcase-container, .showcase-slide, .slider-track.animate-design, .mouse-wheel {
+      transition: none !important; animation: none !important;
+    }
+  }
 </style>    
 </head>    
 <body>    
-    
-<!-- Loading Screen -->    
-<div id="loading-screen" role="status" aria-live="polite">    
-  <div class="loader-glow"></div>    
-  <div class="loader-logo">    
-    <img src="https://r73746935-stack.github.io/RPX-logo/file%20(1).svg" alt="RPX Gaming logo" />    
-  </div>    
-  <div class="dot-spinner" id="dotSpinner"></div>    
-  <p class="loader-text">RPX Gaming</p>    
-</div>    
     
 <!-- Navbar -->    
 <header class="navbar" id="navbar">    
   <div class="nav-inner">    
     <button class="brand" onclick="scrollToSection('hero')">    
-      <img src="https://r73746935-stack.github.io/RPX-logo/file%20(1).svg" alt="RPX Gaming" />    
-      <span class="brand-name">RPX<span class="text-gradient-red"> Gaming</span></span>    
+      <img src="https://raw.githubusercontent.com/r73746935-stack/RPX-virtual/main/file_0000000052a0820796afa30ef40203c8.png" alt="RPX Icon" />    
+      <span class="brand-name">RPX<span class="text-gradient-red"> Visuals</span></span>    
     </button>    
-    <nav class="nav-links" id="navLinks">    
-      <button onclick="scrollToSection('hero')" data-id="hero">Home</button>    
-      <button onclick="scrollToSection('about')" data-id="about">About</button>    
-      <button onclick="scrollToSection('designs')" data-id="designs">Designs</button>    
-      <button onclick="scrollToSection('achievements')" data-id="achievements">Awards</button>    
-      <button onclick="scrollToSection('skills')" data-id="skills">Skills</button>    
-      <button onclick="scrollToSection('contact')" data-id="contact">Contact</button>    
+    <nav class="nav-links">    
+      <button onclick="scrollToSection('hero')">Home</button>    
+      <button onclick="scrollToSection('about')">About</button>    
+      <button onclick="scrollToSection('symbol')">Symbol</button>    
+      <button onclick="scrollToSection('designs')">Portfolio</button>    
+      <button onclick="scrollToSection('skills')">Expertise</button>    
+      <button onclick="scrollToSection('contact')">Contact</button>    
     </nav>    
     <div class="nav-cta"><button onclick="scrollToSection('contact')">Get in touch</button></div>    
-    <button class="nav-toggle" id="navToggle" onclick="toggleMenu()">    
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-sm" id="menuIcon"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>    
-    </button>    
-  </div>    
-  <div class="mobile-menu" id="mobileMenu">    
-    <nav>    
-      <button onclick="scrollToSection('hero')" data-id="hero">Home</button>    
-      <button onclick="scrollToSection('about')" data-id="about">About</button>    
-      <button onclick="scrollToSection('designs')" data-id="designs">Designs</button>    
-      <button onclick="scrollToSection('achievements')" data-id="achievements">Awards</button>    
-      <button onclick="scrollToSection('skills')" data-id="skills">Skills</button>    
-      <button onclick="scrollToSection('contact')" data-id="contact">Contact</button>    
-      <button onclick="scrollToSection('contact')" style="margin-top:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.05);text-align:center;font-weight:600;">Get in touch</button>    
-    </nav>    
   </div>    
 </header>    
     
-<div id="mainContent" style="opacity:0;transition:opacity 0.7s;">    
-    
-<!-- Hero -->    
+<!-- Hero Section (Optimized Height, Softer Dark BG, Larger Text & Scroll Down Animation) -->    
 <section class="hero" id="hero">    
   <div class="hero-bg">    
-    <img src="https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg" alt="RPX Gaming hero background" />    
+    <img src="https://i.postimg.cc/tTDLrNB1/Wgm0j.jpg" alt="RPX Visuals hero background" />    
   </div>    
-  <div class="hero-glow"></div>    
   <div class="hero-content">    
-    <div style="max-width:48rem;">    
-      <div class="hero-badge reveal-item is-visible">    
-        <span class="dot"></span> Gaming · Design · AI    
-      </div>    
-      <h1 class="reveal-item is-visible delay-1">SM Suhrawardi Raj</h1>    
-      <p class="hero-name text-gradient-red reveal-item is-visible delay-2">RPX Gaming</p>    
-      <p class="hero-desc reveal-item is-visible delay-3">    
-        Graphic designer, gaming content creator, and AI prompt engineer based in    
-        Bangladesh. Crafting bold visuals, engaging content, and creative AI solutions    
-        for the gaming community.    
-      </p>    
-      <div class="hero-btns reveal-item is-visible delay-4">    
-        <button class="btn-primary" onclick="scrollToSection('designs')">View Portfolio</button>    
-        <button class="btn-outline" onclick="scrollToSection('contact')">Contact Me</button>    
-      </div>    
+    <div class="hero-badge">    
+      <span class="dot"></span> Graphic Design · AI    
     </div>    
-  </div>    
-  <div class="social-rail">    
-    <div class="line"></div>    
-    <a href="https://www.facebook.com/profile.php?id=61582931245014" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-sm"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>    
-    <a href="https://www.instagram.com/rpxgamingyt29/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-sm"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>    
-    <a href="https://www.youtube.com/@RPX_GamingYT" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-sm"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>    
-    <div class="line" style="background:linear-gradient(to bottom,rgba(255,255,255,0.2),transparent);"></div>    
-  </div>    
-  <div class="scroll-hint">    
-    <span>Scroll</span>    
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:20px;height:20px;"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>    
+    <h1>Visuals That Make Ideas Impossible to Ignore.</h1>    
+    <p class="hero-name text-gradient-red">SM Suhrawardi Raj — RPX Visuals</p>    
+    <p class="hero-desc">    
+      I’m SM Suhrawardi Raj, a graphic designer and AI prompt engineer creating bold, purposeful, and visually striking designs for brands, campaigns, and digital platforms.    
+    </p>    
+    <div class="hero-btns">    
+      <button class="btn-primary" onclick="scrollToSection('designs')">View Portfolio</button>    
+      <button class="btn-outline" onclick="scrollToSection('contact')">Contact Me</button>    
+    </div>    
+
+    <!-- Animated Scroll Down Indicator -->
+    <div class="scroll-indicator" onclick="scrollToSection('about')">
+      <div class="mouse-icon">
+        <div class="mouse-wheel"></div>
+      </div>
+      <span>Scroll Down</span>
+    </div>
   </div>    
 </section>    
     
 <!-- About -->    
 <section class="about" id="about">    
-  <div class="about-glow"></div>    
   <div class="about-grid">    
-    <div class="reveal-item is-visible">    
+    <div>    
       <div class="portrait-wrap">    
-        <div class="portrait-border"></div>    
         <div class="portrait-img">    
-          <img src="https://i.postimg.cc/mZ8TzXrw/file-000000004068720bb3789501691810e7.png" alt="SM Suhrawardi Raj — RPX Gaming" loading="lazy" />    
-        </div>    
-        <div class="portrait-badge">    
-          <p class="big">RPX</p>    
-          <p class="small">Gaming</p>    
+          <img src="https://raw.githubusercontent.com/r73746935-stack/RPX-virtual/main/file_000000001d308211a4e7b63854538f1b.png" alt="SM Suhrawardi Raj Card" />    
         </div>    
       </div>    
     </div>    
     <div>    
-      <p class="section-label reveal-item is-visible">About</p>    
-      <h2 class="section-title reveal-item is-visible delay-1">The creative behind <span class="text-gradient-red">RPX Gaming</span></h2>    
-      <div class="about-text reveal-item is-visible delay-2">    
-        <p>I'm SM Suhrawardi Raj (Raju), a Bangladesh-based graphic designer and gaming content creator. Under the RPX Gaming banner I build visuals and content that help the gaming community stand out.</p>    
-        <p>My work spans poster and logo design, social media content, video editing, and AI prompt engineering — bringing a clean, high-impact style to every project.</p>    
-      </div>    
-      <div class="stats reveal-item is-visible delay-3">    
-        <div class="stat-card"><p class="val">4+</p><p class="lbl">Design Fields</p></div>    
-        <div class="stat-card"><p class="val">100+</p><p class="lbl">Projects</p></div>    
-        <div class="stat-card"><p class="val">∞</p><p class="lbl">Passion</p></div>    
+      <p class="section-label">About Me</p>    
+      <h2 class="section-title">The Creative Mind Behind <span class="text-gradient-red">RPX Visuals</span></h2>    
+      <div class="about-text">    
+        <p>I’m SM Suhrawardi Raj, the creative behind RPX Visuals, turning ideas into bold and memorable visual experiences.</p>    
+        <p>My work focuses on graphic design, logo and brand identity, poster design, social media visuals, and AI-powered creative solutions.</p>    
       </div>    
     </div>    
   </div>    
 </section>    
-    
-<!-- Designs -->    
-<section class="section bg-dark" id="designs">    
+
+<!-- Symbol Section -->
+<section class="symbol-section" id="symbol">
+  <div class="symbol-grid">
+    <div class="symbol-img-wrap">
+      <img src="https://raw.githubusercontent.com/r73746935-stack/RPX-Unbound-Return-Symbol/main/RPX%20Unbound%20Return%20Symbol.png" alt="RPX Unbound Return Symbol" />
+    </div>
+    <div>
+      <p class="section-label">Symbol Meaning</p>
+      <h2 class="section-title"><span class="text-gradient-red">RPX Unbound Return Symbol</span></h2>
+      <div class="meaning-box">
+        <p>A symbol of three core ideas: Never Give Up, Return, and Freedom.</p>
+        <p>I may stop. I may fall. I may walk away.</p>
+        
+        <div class="more-meaning" id="moreMeaningText">
+          <p>But I never truly give up. I return when I’m ready, start again, and choose my own path.</p>
+          <p><strong style="color: #fff;">Rise</strong> — Falling is not the end. Rise again, stronger than before.</p>
+          <p><strong style="color: #fff;">Return</strong> — Walking away does not mean giving up. Return when you are ready and begin again.</p>
+          <p><strong style="color: #fff;">Freedom</strong> — Break free from what holds you back and choose your own direction.</p>
+          <p><strong style="color: #c0c0c0;">Silver</strong> — The struggles, obstacles, exhaustion, and difficult moments of the past.</p>
+          <p><strong style="color: #ffd700;">Gold</strong> — Strength, freedom, return, and the beginning of something new.</p>
+          <p>I may stop. I may fall. But I always return.</p>
+        </div>
+
+        <button class="btn-read-more" id="readMoreBtn" onclick="toggleMeaning()">Read More</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Section -->    
+<section class="section bg-light" id="designs">    
   <div class="section-inner">    
     <div class="section-header">    
-      <p class="section-label reveal-item is-visible">Portfolio</p>    
-      <h2 class="section-title reveal-item is-visible delay-1">Featured <span class="text-gradient-red">Designs</span></h2>    
-      <p class="section-desc reveal-item is-visible delay-2">A selection of posters, logos, key art, and social media content created for the gaming community.</p>    
+      <p class="section-label">Selected Work</p>    
+      <h2 class="section-title">A Collection of <span class="text-gradient-red">Visual Work</span></h2>    
+      <p class="section-desc">A curated collection of selected work crafted to bring ideas, brands, and visual stories to life.</p>    
     </div>    
-    <div class="reveal-item is-visible delay-3">    
-      <div class="slider-wrap" id="designSlider">    
-        <div class="slider-fade-left"></div>    
-        <div class="slider-fade-right"></div>    
+    <div>    
+      <div class="slider-wrap">    
         <div class="slider-track animate-design" id="designTrack"></div>    
       </div>    
     </div>    
-    <div class="view-all-btn reveal-item is-visible delay-4">    
-      <a href="https://drive.google.com/drive/folders/1vY8G8HXObnyl0Ft7OTSzTNw7daZkI22o?usp=drive_link" target="_blank" rel="noopener noreferrer">    
-        View All Designs    
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-xs"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>    
-      </a>    
-    </div>    
-  </div>    
-</section>    
     
-<!-- Achievements -->    
-<section class="section bg-light" id="achievements">    
-  <div class="section-glow-top"></div>    
-  <div class="section-inner">    
-    <div class="section-header">    
-      <p class="section-label reveal-item is-visible">Recognition</p>    
-      <h2 class="section-title reveal-item is-visible delay-1">Awards & <span class="text-gradient-red">Achievements</span></h2>    
-      <p class="section-desc reveal-item is-visible delay-2">Milestones and badges earned through tournaments, community work, and design contests.</p>    
-    </div>    
-    <div class="reveal-item is-visible delay-3">    
-      <div class="slider-wrap" id="badgeSlider">    
-        <div class="slider-fade-left" style="background:linear-gradient(to right,#0c0c11,transparent);"></div>    
-        <div class="slider-fade-right" style="background:linear-gradient(to left,#0c0c11,transparent);"></div>    
-        <div class="slider-track animate-badge" id="badgeTrack"></div>    
-      </div>    
-    </div>    
-    <div class="view-all-btn reveal-item is-visible delay-4">    
-      <a href="https://drive.google.com/drive/folders/1I0Z7DX8UvqVAjCuH6aN83Cr7ld9ZA04O?usp=drive_link" target="_blank" rel="noopener noreferrer">    
-        View All Achievements    
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="icon-xs"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>    
-      </a>    
+    <div class="view-all-btn-group">    
+      <button class="showcase-trigger-btn" onclick="openDesignShowcase()" aria-label="Open Design Showcase">
+        View All Designs
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon-xs"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </button>
     </div>    
   </div>    
 </section>    
@@ -522,37 +563,29 @@
 <section class="section bg-dark" id="skills">    
   <div class="section-inner">    
     <div class="section-header">    
-      <p class="section-label reveal-item is-visible">Capabilities</p>    
-      <h2 class="section-title reveal-item is-visible delay-1">Skills & <span class="text-gradient-red">Expertise</span></h2>    
-      <p class="section-desc reveal-item is-visible delay-2">A blend of creative design, gaming content production, and AI-driven work.</p>    
+      <p class="section-label">Expertise</p>    
+      <h2 class="section-title">Creative Skills, Built for <span class="text-gradient-red">Impact</span></h2>    
     </div>    
-    <div class="skills-list reveal-item is-visible delay-3">    
-      <span class="skill-tag skill-design">Graphic Design <span class="cat">Design</span></span>    
-      <span class="skill-tag skill-design">Logo Design <span class="cat">Design</span></span>    
-      <span class="skill-tag skill-design">Poster Design <span class="cat">Design</span></span>    
-      <span class="skill-tag skill-design">Social Media Content <span class="cat">Design</span></span>    
-      <span class="skill-tag skill-video">Thumbnail Design <span class="cat">Video</span></span>    
-      <span class="skill-tag skill-video">Video Editing <span class="cat">Video</span></span>    
-      <span class="skill-tag skill-video">Gaming Content <span class="cat">Video</span></span>    
-      <span class="skill-tag skill-ai">AI Prompt Engineering <span class="cat">AI</span></span>    
-      <span class="skill-tag skill-ai">Creative AI <span class="cat">AI</span></span>    
+    <div class="skills-list">    
+      <span class="skill-tag">Graphic Designer</span>    
+      <span class="skill-tag">Web Developer</span>    
+      <span class="skill-tag">Website Developer</span>    
+      <span class="skill-tag">Logo Designer</span>    
+      <span class="skill-tag">Thumbnail Designer</span>    
+      <span class="skill-tag">Prompt Engineer</span>    
     </div>    
   </div>    
 </section>    
     
-<!-- Contact -->    
+<!-- Contact Section -->    
 <section class="section bg-light" id="contact">    
-  <div class="section-glow-bottom"></div>    
   <div class="contact-inner">    
-    <p class="section-label reveal-item is-visible">Contact</p>    
-    <h2 class="section-title reveal-item is-visible delay-1">Let's <span class="text-gradient-red">connect</span></h2>    
-    <p class="section-desc reveal-item is-visible delay-2" style="max-width:36rem;margin-left:auto;margin-right:auto;">    
-      Have a project, collaboration, or just want to say hi? Reach out through any of the channels below.    
-    </p>    
-    <div class="contact-social reveal-item is-visible delay-3">    
-      <a href="https://www.facebook.com/profile.php?id=61582931245014" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-sm"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>    
-      <a href="https://www.instagram.com/rpxgamingyt29/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-sm"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>    
-      <a href="https://www.youtube.com/@RPX_GamingYT" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-sm"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>    
+    <h2 class="section-title"><span class="text-gradient-red">Contact Me</span></h2>    
+    <div class="contact-social">    
+      <a href="https://www.facebook.com/profile.php?id=61582931245014" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-lg"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>    
+      <a href="https://www.instagram.com/rpxgamingyt29/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-lg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>    
+      <a href="https://www.youtube.com/@RPX_GamingYT" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-lg"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>    
+      <a href="https://wa.me/8801710583305" target="_blank" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" class="icon-lg"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.572.118.479-.175 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></a>    
     </div>    
   </div>    
 </section>    
@@ -561,159 +594,243 @@
 <footer class="footer">    
   <div class="footer-inner">    
     <div class="footer-brand">    
-      <img src="https://r73746935-stack.github.io/RPX-logo/file%20(1).svg" alt="RPX Gaming" />    
+      <img src="https://raw.githubusercontent.com/r73746935-stack/RPX-virtual/main/file_0000000052a0820796afa30ef40203c8.png" alt="RPX Icon" />    
       <div>    
-        <p class="name">RPX<span class="text-gradient-red"> Gaming</span></p>    
+        <p class="name">RPX<span class="text-gradient-red"> Visuals</span></p>    
         <p class="sub">SM Suhrawardi Raj</p>    
       </div>    
     </div>    
-    <p class="footer-copy">© 2026 RPX Gaming. All rights reserved.</p>    
-    <div class="footer-social">    
-      <a href="https://www.facebook.com/profile.php?id=61582931245014" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7v-3.5h3.1V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>    
-      <a href="https://www.instagram.com/rpxgamingyt29/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>    
-      <a href="https://www.youtube.com/@RPX_GamingYT" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg></a>    
-    </div>    
+    <p class="footer-copy">© 2026 RPX Visuals. All rights reserved.</p>    
   </div>    
 </footer>    
-    
-</div><!-- /mainContent -->    
-    
-<script>    
-  // ---- Loader dots ----    
-  (function() {    
-    var spinner = document.getElementById('dotSpinner');    
-    for (var i = 0; i < 12; i++) {    
-      var dot = document.createElement('div');    
-      dot.className = 'ios-dot';    
-      dot.style.transform = 'rotate(' + (i * 30) + 'deg)';    
-      dot.style.animationDelay = (i * 0.1) + 's';    
-      spinner.appendChild(dot);    
-    }    
-  })();    
-    
-  // ---- Design gallery images ----    
+
+<!-- SHOWCASE MODAL -->
+<div id="designShowcaseModal" class="showcase-modal" role="dialog" aria-modal="true" aria-label="Interactive Design Showcase">
+  <div class="showcase-backdrop" onclick="closeDesignShowcase()"></div>
+  <div class="showcase-container">
+    <div class="showcase-header">
+      <div class="showcase-brand">
+        RPX<span class="text-gradient-red">Showcase</span>
+        <span class="live-badge">Interactive</span>
+      </div>
+      <button class="showcase-close-btn" onclick="closeDesignShowcase()" aria-label="Close Showcase">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon-xs"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+
+    <div class="showcase-body" id="showcaseInteractiveArea">
+      <button class="showcase-nav-btn prev-btn" onclick="manualPrevDesign()" aria-label="Previous Design">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon-xs"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+
+      <div class="showcase-viewport">
+        <div class="showcase-slides-wrapper" id="showcaseSlidesWrapper"></div>
+      </div>
+
+      <button class="showcase-nav-btn next-btn" onclick="manualNextDesign()" aria-label="Next Design">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="icon-xs"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="showcase-footer">
+      <div class="showcase-info">
+        <span class="showcase-counter" id="showcaseCounter">01 / 09</span>
+        <div class="showcase-title-text" id="showcaseTitle">RPX Design Item</div>
+      </div>
+      <div class="showcase-dots" id="showcaseDots"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var repoBaseUrl = 'https://raw.githubusercontent.com/r73746935-stack/rpx-portfolio-index.html-style.css-images-design1.png-design2.png-design3.png-logo.png/main/';
+
   var designImages = [    
-    { src: 'https://r73746935-stack.github.io/RPX-designs/thumbnail.png', alt: 'RPX Graphic Art Thumbnail Design' },    
-    { src: 'https://r73746935-stack.github.io/RPX-designs/how%20to%20obtain%20command%20block.png', alt: 'How to obtain command block banner' },    
-    { src: 'https://r73746935-stack.github.io/RPX-designs/command%20block%20thumbnail.png', alt: 'Minecraft Command Block Art Thumbnail' },    
-    { src: 'https://r73746935-stack.github.io/RPX-designs/thumbnail.png', alt: 'RPX Graphic Art Thumbnail Design' },    
+    { src: 'https://r73746935-stack.github.io/RPX-designs/thumbnail.png', alt: 'RPX Thumbnail Design 1' },    
+    { src: 'https://r73746935-stack.github.io/RPX-designs/how%20to%20obtain%20command%20block.png', alt: 'RPX Thumbnail Design 2' },    
+    { src: 'https://r73746935-stack.github.io/RPX-designs/command%20block%20thumbnail.png', alt: 'RPX Thumbnail Design 3' },
+    { src: repoBaseUrl + 'file_00000000249482078ae6ec57a60e6c5c.png', alt: 'RPX Visuals Identity Showcase' },
+    { src: repoBaseUrl + 'file_0000000091ac82078771ba5820464894.png', alt: 'RPX Sneakers Product Poster' },
+    { src: repoBaseUrl + 'file_000000006e108207ad7c13f4bbcf1f00.png', alt: 'RPX Smartwatch Poster' },
+    { src: repoBaseUrl + 'file_00000000a4c08207a988a8bf179819a1.png', alt: 'RPX Perfume Product Poster' },
+    { src: repoBaseUrl + 'file_00000000d09881fa9cb45ac43abc2f20.png', alt: 'RPX Branding Apparel & Accessories' },
+    { src: repoBaseUrl + 'file_00000000a7948211a48d81a032a1d58a.png', alt: 'RPX Energy Drink Poster' }
   ];    
+  
   var designTrack = document.getElementById('designTrack');    
-  designImages.forEach(function(img) {    
-    var item = document.createElement('div');    
-    item.className = 'slider-item';    
-    item.innerHTML = '<div class="slider-img-wrap landscape"><img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" /></div>';    
-    designTrack.appendChild(item);    
-  });    
-  // Duplicate for seamless loop    
-  designImages.forEach(function(img) {    
-    var item = document.createElement('div');    
-    item.className = 'slider-item';    
-    item.innerHTML = '<div class="slider-img-wrap landscape"><img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" /></div>';    
-    designTrack.appendChild(item);    
-  });    
-    
-  // ---- Achievement badges ----    
-  var badgeImages = [    
-    { src: 'https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Image%20Generation.png', alt: 'Google Cloud Badge - Intro to Image Generation' },    
-    { src: 'https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Generative%20AI.png', alt: 'Google Cloud Badge - Intro to Generative AI' },    
-    { src: 'https://r73746935-stack.github.io/RPX-achievement/Create%20Image%20Captioning%20Models.png', alt: 'Google Cloud Badge - Create Image Captioning Models' },    
-    { src: 'https://r73746935-stack.github.io/RPX-achievement/Introduction%20to%20Image%20Generation.png', alt: 'Google Cloud Badge - Intro to Image Generation' },    
-  ];    
-  var badgeTrack = document.getElementById('badgeTrack');    
-  badgeImages.forEach(function(img) {    
-    var item = document.createElement('div');    
-    item.className = 'slider-item';    
-    item.innerHTML = '<div class="slider-img-wrap square"><img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" /></div>';    
-    badgeTrack.appendChild(item);    
-  });    
-  badgeImages.forEach(function(img) {    
-    var item = document.createElement('div');    
-    item.className = 'slider-item';    
-    item.innerHTML = '<div class="slider-img-wrap square"><img src="' + img.src + '" alt="' + img.alt + '" loading="lazy" /></div>';    
-    badgeTrack.appendChild(item);    
-  });    
-    
-  // ---- Loading screen ----    
-  (function() {    
-    var MIN_DISPLAY = 900;    
-    var start = Date.now();    
-    function finish() {    
-      var elapsed = Date.now() - start;    
-      var wait = Math.max(0, MIN_DISPLAY - elapsed);    
-      setTimeout(function() {    
-        var ls = document.getElementById('loading-screen');    
-        var mc = document.getElementById('mainContent');    
-        if (ls) ls.style.display = 'none';    
-        if (mc) mc.style.opacity = '1';    
-      }, wait);    
-    }    
-    if (document.readyState === 'complete') {    
-      finish();    
-    } else {    
-      window.addEventListener('load', finish, { once: true });    
-    }    
-  })();    
-    
-  // ---- Navbar scroll ----    
-  var navbar = document.getElementById('navbar');    
-  window.addEventListener('scroll', function() {    
-    if (window.scrollY > 24) navbar.classList.add('scrolled');    
-    else navbar.classList.remove('scrolled');    
-  }, { passive: true });    
-    
-  // ---- Mobile menu ----    
-  function toggleMenu() {    
-    var menu = document.getElementById('mobileMenu');    
-    menu.classList.toggle('open');    
-    var icon = document.getElementById('menuIcon');    
-    if (menu.classList.contains('open')) {    
-      icon.innerHTML = '<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>';    
-    } else {    
-      icon.innerHTML = '<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>';    
-    }    
-  }    
-    
-  // ---- Smooth scroll ----    
+  
+  function populateSlider() {
+    designImages.concat(designImages).forEach(function(img) {    
+      var item = document.createElement('div');    
+      item.className = 'slider-item';    
+      item.innerHTML = '<div class="slider-img-wrap"><img src="' + img.src + '" alt="' + img.alt + '" /></div>';    
+      designTrack.appendChild(item);    
+    });
+  }
+  populateSlider();
+
   function scrollToSection(id) {    
-    document.getElementById('mobileMenu').classList.remove('open');    
-    document.getElementById('menuIcon').innerHTML = '<line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>';    
     var el = document.getElementById(id);    
     if (el) el.scrollIntoView({ behavior: 'smooth' });    
-  }    
-    
-  // ---- Scroll spy ----    
-  var sectionIds = ['hero','about','designs','achievements','skills','contact'];    
-  var navButtons = document.querySelectorAll('[data-id]');    
-  var observer = new IntersectionObserver(function(entries) {    
-    entries.forEach(function(e) {    
-      if (e.isIntersecting) {    
-        var id = e.target.id;    
-        navButtons.forEach(function(btn) {    
-          if (btn.getAttribute('data-id') === id) btn.classList.add('active');    
-          else btn.classList.remove('active');    
-        });    
-      }    
-    });    
-  }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.1, 0.25, 0.5] });    
-  sectionIds.forEach(function(id) {    
-    var el = document.getElementById(id);    
-    if (el) observer.observe(el);    
-  });    
-    
-  // ---- Reveal on scroll ----    
-  var revealObserver = new IntersectionObserver(function(entries) {    
-    entries.forEach(function(e) {    
-      if (e.isIntersecting) {    
-        e.target.classList.add('is-visible');    
-        revealObserver.unobserve(e.target);    
-      }    
-    });    
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });    
-  document.querySelectorAll('.reveal-item').forEach(function(el) {    
-    revealObserver.observe(el);    
-  });    
+  }
+
+  function toggleMeaning() {
+    var moreText = document.getElementById('moreMeaningText');
+    var btn = document.getElementById('readMoreBtn');
+    if (moreText.style.display === 'flex') {
+      moreText.style.display = 'none';
+      btn.textContent = 'Read More';
+    } else {
+      moreText.style.display = 'flex';
+      btn.textContent = 'Read Less';
+    }
+  }
+
+  /* SHOWCASE MODAL LOGIC */
+  var currentShowcaseIndex = 0;
+  var autoSlideInterval = null;
+  var inactivityTimer = null;
+  var isUserInteracting = false;
+  var AUTO_SPEED = 3500;
+  var INACTIVITY_DELAY = 5000;
+
+  var modal = document.getElementById('designShowcaseModal');
+  var slidesWrapper = document.getElementById('showcaseSlidesWrapper');
+  var dotsContainer = document.getElementById('showcaseDots');
+  var counterEl = document.getElementById('showcaseCounter');
+  var titleEl = document.getElementById('showcaseTitle');
+  var interactiveArea = document.getElementById('showcaseInteractiveArea');
+
+  function buildShowcaseDOM() {
+    slidesWrapper.innerHTML = '';
+    dotsContainer.innerHTML = '';
+
+    designImages.forEach(function(imgData, index) {
+      var slide = document.createElement('div');
+      slide.className = 'showcase-slide' + (index === 0 ? ' active' : '');
+      slide.id = 'showcase-slide-' + index;
+      slide.innerHTML = '<img class="showcase-img-card" src="' + imgData.src + '" alt="' + imgData.alt + '" loading="eager"/>';
+      slidesWrapper.appendChild(slide);
+
+      var dot = document.createElement('button');
+      dot.className = 'showcase-dot' + (index === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide ' + (index + 1));
+      dot.onclick = function() {
+        goToSlide(index);
+        triggerInactivityCountdown();
+      };
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function updateSlidePosition() {
+    var slides = slidesWrapper.querySelectorAll('.showcase-slide');
+    slides.forEach(function(slide, idx) {
+      if (idx === currentShowcaseIndex) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    var formattedIndex = (currentShowcaseIndex + 1 < 10 ? '0' : '') + (currentShowcaseIndex + 1);
+    var totalFormatted = (designImages.length < 10 ? '0' : '') + designImages.length;
+    counterEl.textContent = formattedIndex + ' / ' + totalFormatted;
+    titleEl.textContent = designImages[currentShowcaseIndex].alt || 'RPX Visual Design';
+
+    var dots = dotsContainer.querySelectorAll('.showcase-dot');
+    dots.forEach(function(dot, idx) {
+      if (idx === currentShowcaseIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  function goToSlide(index) {
+    currentShowcaseIndex = index;
+    if (currentShowcaseIndex >= designImages.length) currentShowcaseIndex = 0;
+    if (currentShowcaseIndex < 0) currentShowcaseIndex = designImages.length - 1;
+    updateSlidePosition();
+  }
+
+  function nextSlide() { goToSlide(currentShowcaseIndex + 1); }
+  function prevSlide() { goToSlide(currentShowcaseIndex - 1); }
+
+  function startAutoSlideshow() {
+    stopAutoSlideshow();
+    autoSlideInterval = setInterval(function() {
+      if (!isUserInteracting) nextSlide();
+    }, AUTO_SPEED);
+  }
+
+  function stopAutoSlideshow() {
+    if (autoSlideInterval) {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = null;
+    }
+  }
+
+  function triggerInactivityCountdown() {
+    stopAutoSlideshow();
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+
+    inactivityTimer = setTimeout(function() {
+      if (!isUserInteracting) startAutoSlideshow();
+    }, INACTIVITY_DELAY);
+  }
+
+  function handleInteractionStart() {
+    isUserInteracting = true;
+    stopAutoSlideshow();
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+  }
+
+  function handleInteractionEnd() {
+    isUserInteracting = false;
+    triggerInactivityCountdown();
+  }
+
+  function manualNextDesign() {
+    nextSlide();
+    triggerInactivityCountdown();
+  }
+
+  function manualPrevDesign() {
+    prevSlide();
+    triggerInactivityCountdown();
+  }
+
+  function openDesignShowcase() {
+    buildShowcaseDOM();
+    goToSlide(0);
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    startAutoSlideshow();
+    window.addEventListener('keydown', handleKeyPress);
+  }
+
+  function closeDesignShowcase() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+    stopAutoSlideshow();
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+    window.removeEventListener('keydown', handleKeyPress);
+  }
+
+  function handleKeyPress(e) {
+    if (e.key === 'Escape') closeDesignShowcase();
+    if (e.key === 'ArrowRight') manualNextDesign();
+    if (e.key === 'ArrowLeft') manualPrevDesign();
+  }
+
+  interactiveArea.addEventListener('mouseenter', handleInteractionStart);
+  interactiveArea.addEventListener('mouseleave', handleInteractionEnd);
+  interactiveArea.addEventListener('touchstart', handleInteractionStart, { passive: true });
+  interactiveArea.addEventListener('touchend', handleInteractionEnd, { passive: true });
 </script>    
     
 </body>    
-                                                                                                                                                                           </html>
+</html>l
